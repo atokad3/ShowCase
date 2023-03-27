@@ -20,4 +20,16 @@ public class EnergyBar : MonoBehaviour
     {
         
     }
+
+    public void SetMaxEnergy(int energy)
+    {
+        energySlider.maxValue = energy;
+        energySlider.value = energy;
+
+    }
+
+    public void SetEnergy(int energy)
+    {
+        energySlider.value = energy;
+    }
 }
