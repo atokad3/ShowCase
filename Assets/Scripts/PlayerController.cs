@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 3;
 
     public int maxEnergy = 100;
     public int currentEnergy;
-
+    public float speed = 3;
+    public GameObject checklist;
+    public Animator anim;
+    public GameObject PauseGame;
     public EnergyBar energyBar;
 
     // Start is called before the first frame update
@@ -21,16 +23,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
-
-
-
-        ///////////////////////
-        ///////////////////////
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!PauseGame.activeInHierarchy)
         {
-            LoseEnergy(10);
+            PlayerMovement();
+            Checklist();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                LoseEnergy(10);
+            }
         }
+        Pause();
     }
 
     
@@ -40,25 +42,50 @@ public class PlayerController : MonoBehaviour
         energyBar.SetEnergy(currentEnergy);
     }
 
+    private void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !PauseGame.activeInHierarchy)
+        {
+            PauseGame.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && PauseGame.activeInHierarchy)
+        {
+            PauseGame.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    private void Checklist()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && !checklist.activeInHierarchy)
+        {
+            checklist.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && checklist.activeInHierarchy)
+        {
+            checklist.SetActive(false);
+        }
+    }
+
     private void PlayerMovement()
     {
         //left - right
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
-
+            GetComponent<SpriteRenderer>().flipX = false;
+            anim.SetBool("walking", true);
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
+            GetComponent<SpriteRenderer>().flipX = true;
+            anim.SetBool("walking", true);
         }
-        if (Input.GetKey(KeyCode.W))
+        else
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.down * speed * Time.deltaTime;
+            anim.SetBool("walking", false);
         }
     }
 
