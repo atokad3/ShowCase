@@ -16,7 +16,7 @@ public class ChangeScene : MonoBehaviour
         
     }
 
-    public void MoveToScene()
+    public void gameScene()
     {
         SceneManager.LoadScene(sceneBuildIndex: 1);
     }
@@ -28,5 +28,22 @@ public class ChangeScene : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void TutorialScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 3);
+    }
+
+
+    public void CreditScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 2);
+    }
+
+
+    public void MenuScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 }
