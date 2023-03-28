@@ -5,28 +5,39 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3;
-    public GameObject checklist;
-    public Animator anim;
 
+    public int maxEnergy = 100;
+    public int currentEnergy;
+
+    public EnergyBar energyBar;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        currentEnergy = maxEnergy;
+        energyBar.SetMaxEnergy(maxEnergy);
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMovement();
-        if (Input.GetKeyDown(KeyCode.Tab) && !checklist.activeInHierarchy)
+
+
+
+        ///////////////////////
+        ///////////////////////
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            checklist.SetActive(true);
+            LoseEnergy(10);
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && checklist.activeInHierarchy)
-        {
-            checklist.SetActive(false);
-        }
+    }
+
+    
+    private void LoseEnergy(int energyLoss)
+    {
+        currentEnergy -= energyLoss;
+        energyBar.SetEnergy(currentEnergy);
     }
 
     private void PlayerMovement()
@@ -35,18 +46,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
-            GetComponent<SpriteRenderer>().flipX = false;
-            anim.SetBool("walking", true);
+
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
-            GetComponent<SpriteRenderer>().flipX = true;
-            anim.SetBool("walking", true);
         }
-        else
+        if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("walking", false);
+            transform.position += Vector3.up * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += Vector3.down * speed * Time.deltaTime;
         }
     }
 
