@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3;
-
+    public GameObject checklist;
 
 
     // Start is called before the first frame update
@@ -18,6 +18,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        if (Input.GetKeyDown(KeyCode.Tab) && !checklist.activeInHierarchy)
+        {
+            checklist.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && checklist.activeInHierarchy)
+        {
+            checklist.SetActive(false);
+        }
     }
 
     private void PlayerMovement()
