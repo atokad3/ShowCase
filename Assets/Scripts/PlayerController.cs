@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 3;
     public GameObject checklist;
+    public Animator anim;
 
 
     // Start is called before the first frame update
@@ -34,19 +35,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
-
+            GetComponent<SpriteRenderer>().flipX = false;
+            anim.SetBool("walking", true);
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
+            GetComponent<SpriteRenderer>().flipX = true;
+            anim.SetBool("walking", true);
         }
-        if (Input.GetKey(KeyCode.W))
+        else
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.down * speed * Time.deltaTime;
+            anim.SetBool("walking", false);
         }
     }
 
