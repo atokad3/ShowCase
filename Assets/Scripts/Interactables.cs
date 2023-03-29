@@ -7,15 +7,18 @@ public class Interactables : MonoBehaviour
 
     public GameObject glow;
     public bool taskIsDone;
-    public float energyCost;
 
+    public int energyCost;
     public EnergyBar energyBar;
+    public int maxEnergy = 100;
     public int currentEnergy;
 
     // Start is called before the first frame update
     void Start()
     {
         taskIsDone = false;
+        currentEnergy = maxEnergy;
+        energyBar.SetMaxEnergy(maxEnergy);
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class Interactables : MonoBehaviour
             Debug.Log("YES");
             taskIsDone = true;
             glow.SetActive(false);
+            LoseEnergy(energyCost);
         }
     }
 
@@ -41,5 +45,11 @@ public class Interactables : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         glow.SetActive(false);
+    }
+
+    private void LoseEnergy(int energyLoss)
+    {
+        currentEnergy -= energyLoss;
+        energyBar.SetEnergy(currentEnergy);
     }
 }

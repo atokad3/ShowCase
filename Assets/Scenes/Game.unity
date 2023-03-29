@@ -3864,8 +3864,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 346857798}
   taskIsDone: 1
-  energyCost: 10
-  energyBar: {fileID: 0}
+  energyCost: 30
+  energyBar: {fileID: 800257007}
+  maxEnergy: 100
   currentEnergy: 0
 --- !u!1 &1446603287
 GameObject:
