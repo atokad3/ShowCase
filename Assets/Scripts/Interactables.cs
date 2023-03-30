@@ -13,12 +13,15 @@ public class Interactables : MonoBehaviour
     public int maxEnergy = 100;
     public int currentEnergy;
 
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
         taskIsDone = false;
         currentEnergy = maxEnergy;
         energyBar.SetMaxEnergy(maxEnergy);
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class Interactables : MonoBehaviour
             taskIsDone = true;
             glow.SetActive(false);
             LoseEnergy(energyCost);
+            player.GetComponent<Animator>().SetBool("gotDressed", true);
         }
     }
 
