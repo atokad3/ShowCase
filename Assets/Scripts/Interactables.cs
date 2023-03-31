@@ -14,6 +14,8 @@ public class Interactables : MonoBehaviour
     public int currentEnergy;
 
     private GameObject player;
+    public GameObject box;
+    public Sprite check;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class Interactables : MonoBehaviour
             glow.SetActive(false);
             LoseEnergy(energyCost);
             player.GetComponent<Animator>().SetBool("gotDressed", true);
+            box.GetComponent<SpriteRenderer>().sprite = check;
         }
     }
 
