@@ -31,7 +31,6 @@ public class Interactables : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && !taskIsDone)
         {
-            Debug.Log("YES");
             taskIsDone = true;
             glow.SetActive(false);
             LoseEnergy(energyCost);
