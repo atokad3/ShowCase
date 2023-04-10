@@ -12,12 +12,16 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject PauseGame;
     public EnergyBar energyBar;
+    public int day;
+    public int time;
+    public bool doorClicked;
 
     // Start is called before the first frame update
     void Start()
     {
         currentEnergy = maxEnergy;
         energyBar.SetMaxEnergy(maxEnergy);
+        
     }
 
     // Update is called once per frame
@@ -35,7 +39,12 @@ public class PlayerController : MonoBehaviour
         Pause();
     }
 
-    
+    /*
+     * Each day, player chooses activity
+     * Each activity costs energy
+     * When daily energy remaining minus starting energy < 0, sleep
+     * Rinse, repeat
+     */
     private void LoseEnergy(int energyLoss)
     {
         currentEnergy -= energyLoss;
@@ -89,4 +98,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    //make a thing that has time go up once you leave the house, days are like levels like cat game need to clear objectives to get to next day
+    public void ClockTimer()
+    {
+            time = 8; // once you leave the house and click on the door the time gets set to 8 am\
+        // set the time on the button need to search for anwsers 
+    }
 }

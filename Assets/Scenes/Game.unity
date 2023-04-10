@@ -2436,7 +2436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: -0.04, z: -10}
+  m_LocalPosition: {x: 0.02, y: -0.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4127,9 +4127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGoTo: {x: 12.17, y: -1, z: -0.25}
-  cameraGoTo: {x: 19.32, y: 0, z: -10}
+  cameraGoTo: {x: 39.5, y: 11.56, z: -10}
   currentRoom: {fileID: 583233768}
-  newRoom: {fileID: 1884984521}
+  newRoom: {fileID: 1685388868}
 --- !u!114 &917887181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4177,6 +4177,18 @@ MonoBehaviour:
       - m_Target: {fileID: 917887180}
         m_TargetAssemblyTypeName: Doors, Assembly-CSharp
         m_MethodName: Move
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1526395449}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ClockTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5362,6 +5374,9 @@ MonoBehaviour:
   anim: {fileID: 1526395450}
   PauseGame: {fileID: 1728801821}
   energyBar: {fileID: 800257007}
+  day: 0
+  time: 0
+  doorClicked: 0
 --- !u!95 &1526395450
 Animator:
   serializedVersion: 4
