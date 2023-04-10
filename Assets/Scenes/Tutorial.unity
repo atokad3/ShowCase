@@ -250,8 +250,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Click on Doors
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
-  m_sharedMaterial: {fileID: 1218965758596213191, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
+  m_sharedMaterial: {fileID: -2564430659280945806, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -385,8 +385,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You start each day with 100 Energy as you do more tasks you lose energy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
-  m_sharedMaterial: {fileID: 1218965758596213191, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
+  m_sharedMaterial: {fileID: -2564430659280945806, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -688,8 +688,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
-  m_sharedMaterial: {fileID: 1218965758596213191, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
+  m_sharedMaterial: {fileID: -2564430659280945806, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -823,8 +823,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: WASD to move
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
-  m_sharedMaterial: {fileID: 1218965758596213191, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
+  m_sharedMaterial: {fileID: -2564430659280945806, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -958,8 +958,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use Tab to open the checklist and E to interact with different tasks
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
-  m_sharedMaterial: {fileID: 1218965758596213191, guid: 47cc6eb1ee13d6e4b9e78b785444040d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
+  m_sharedMaterial: {fileID: -2564430659280945806, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

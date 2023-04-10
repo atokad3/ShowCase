@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sleep : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Sleep : MonoBehaviour
         {
             taskIsDone = true;
             glow.SetActive(false);
+            SceneManager.LoadScene("Game");
             // add things when clock
         }
     }

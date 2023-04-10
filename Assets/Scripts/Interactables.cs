@@ -29,7 +29,7 @@ public class Interactables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && !taskIsDone)
+        if(Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
         {
             taskIsDone = true;
             glow.SetActive(false);
