@@ -34,7 +34,10 @@ public class Interactables : MonoBehaviour
             taskIsDone = true;
             glow.SetActive(false);
             LoseEnergy(energyCost);
-            player.GetComponent<Animator>().SetBool("gotDressed", true);
+            if(gameObject.name == "Dresser")
+            {
+                player.GetComponent<Animator>().SetBool("gotDressed", true);
+            }
             box.GetComponent<SpriteRenderer>().sprite = check;
         }
     }
