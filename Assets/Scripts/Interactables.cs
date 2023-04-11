@@ -10,8 +10,8 @@ public class Interactables : MonoBehaviour
 
     public int energyCost;
     public EnergyBar energyBar;
-    public int maxEnergy = 100;
-    public int currentEnergy;
+    public float maxEnergy = 100;
+    public float currentEnergy;
 
     private GameObject player;
     public GameObject box;
@@ -29,6 +29,7 @@ public class Interactables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentEnergy = energyBar.energySlider.value;
         if(Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
         {
             taskIsDone = true;
