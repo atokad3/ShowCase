@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject PauseGame;
     public EnergyBar energyBar;
-    public int day;
+    public string day;
     public int time;
     public bool doorClicked;
 
@@ -103,6 +104,8 @@ public class PlayerController : MonoBehaviour
     public void ClockTimer()
     {
             time = 8; // once you leave the house and click on the door the time gets set to 8 am\
-        // set the time on the button need to search for anwsers 
+           // set the time on the button need to search for answers = input field on button for time
+           
+           
     }
 }
