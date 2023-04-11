@@ -1121,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &204512587
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6081,7 +6081,7 @@ MonoBehaviour:
   anim: {fileID: 1526395450}
   PauseGame: {fileID: 1728801821}
   energyBar: {fileID: 800257007}
-  day: 0
+  day: Sunday
   time: 0
   doorClicked: 0
 --- !u!95 &1526395450
