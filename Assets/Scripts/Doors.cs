@@ -10,6 +10,8 @@ public class Doors : MonoBehaviour
     public Vector3 cameraGoTo;
     public GameObject currentRoom;
     public GameObject newRoom;
+    public GameObject doorButton;
+
 
     // for closet in living room, if other door then ignore
     public GameObject openDoor;
@@ -22,15 +24,25 @@ public class Doors : MonoBehaviour
 
     public void Move()
     {
-        player.transform.position = playerGoTo;
-        mainCamera.transform.position = cameraGoTo;
-        currentRoom.SetActive(false);
-        newRoom.SetActive(true);
+            player.transform.position = playerGoTo;
+            mainCamera.transform.position = cameraGoTo;
+            currentRoom.SetActive(false);
+            newRoom.SetActive(true);
     }
 
     public void Closet()
     {
         gameObject.SetActive(false);
         openDoor.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+            doorButton.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+            doorButton.SetActive(false);
     }
 }
