@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public EnergyBar energyBar;
     public int maxEnergy = 100;
     public int currentEnergy;
+    
 
     // Start is called before the first frame update
     void Start()
