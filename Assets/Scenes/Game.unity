@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10828155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.016716, y: 12.455906, z: 9.893191}
+  m_LocalPosition: {x: 61.016716, y: 12.455906, z: 10.47}
   m_LocalScale: {x: 0.94, y: 0.97, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3775,6 +3775,7 @@ MonoBehaviour:
   currentEnergy: 0
   box: {fileID: 823139739}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  closet: {fileID: 0}
 --- !u!61 &729382316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4507,6 +4508,7 @@ MonoBehaviour:
   currentEnergy: 0
   box: {fileID: 460221527}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  closet: {fileID: 0}
 --- !u!61 &843137357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5855,6 +5857,7 @@ MonoBehaviour:
   currentEnergy: 0
   box: {fileID: 1950407141}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  closet: {fileID: 0}
 --- !u!1 &1170797577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6273,6 +6276,7 @@ MonoBehaviour:
   currentEnergy: 0
   box: {fileID: 745000413}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  closet: {fileID: 0}
 --- !u!1 &1335759763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7019,7 +7023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da458ede1f45de545a7f42292812ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 9
   checklist: {fileID: 204512586}
   anim: {fileID: 1526395450}
   PauseGame: {fileID: 1728801821}
@@ -7689,6 +7693,7 @@ MonoBehaviour:
   currentEnergy: 0
   box: {fileID: 1547538192}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  closet: {fileID: 0}
 --- !u!61 &1721341064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8292,11 +8297,11 @@ GameObject:
   - component: {fileID: 1891022723}
   m_Layer: 0
   m_Name: vacuum
-  m_TagString: Untagged
+  m_TagString: Vacuum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1891022722
 Transform:
   m_ObjectHideFlags: 0
@@ -8333,6 +8338,7 @@ MonoBehaviour:
   currentEnergy: 0
   box: {fileID: 202042529}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  closet: {fileID: 764988289}
 --- !u!61 &1891022724
 BoxCollider2D:
   m_ObjectHideFlags: 0
