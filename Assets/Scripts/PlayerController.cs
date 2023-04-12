@@ -6,22 +6,15 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    public int maxEnergy = 100;
-    public int currentEnergy;
     public float speed = 3;
     public GameObject checklist;
     public Animator anim;
     public GameObject PauseGame;
-    public EnergyBar energyBar;
-    public string day;
-    public int time;
     public bool doorClicked;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentEnergy = maxEnergy;
-        energyBar.SetMaxEnergy(maxEnergy);
         
     }
 
@@ -32,10 +25,6 @@ public class PlayerController : MonoBehaviour
         {
             PlayerMovement();
             Checklist();
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                LoseEnergy(10);
-            }
         }
         Pause();
     }
@@ -46,11 +35,6 @@ public class PlayerController : MonoBehaviour
      * When daily energy remaining minus starting energy < 0, sleep
      * Rinse, repeat
      */
-    private void LoseEnergy(int energyLoss)
-    {
-        currentEnergy -= energyLoss;
-        energyBar.SetEnergy(currentEnergy);
-    }
 
     private void Pause()
     {
@@ -99,13 +83,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    //make a thing that has time go up once you leave the house, days are like levels like cat game need to clear objectives to get to next day
-    public void ClockTimer()
-    {
-            time = 8; // once you leave the house and click on the door the time gets set to 8 am\
-           // set the time on the button need to search for answers = input field on button for time
-           
-           
-    }
 }

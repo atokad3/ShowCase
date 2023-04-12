@@ -46,4 +46,10 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
+
+    public void ResetDay()
+    {
+        PlayerPrefs.SetInt("Weekday", 0);
+        PlayerPrefs.SetInt("Time", -45);
+    }
 }

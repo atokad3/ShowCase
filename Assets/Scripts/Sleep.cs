@@ -8,11 +8,12 @@ public class Sleep : MonoBehaviour
 
     public GameObject glow;
     public bool taskIsDone;
+    private GameObject gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -22,8 +23,8 @@ public class Sleep : MonoBehaviour
         {
             taskIsDone = true;
             glow.SetActive(false);
+            gameManager.GetComponent<GameManager>().ChangeDay();
             SceneManager.LoadScene("Game");
-            // add things when clock
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
