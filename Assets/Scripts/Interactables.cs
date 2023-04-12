@@ -16,6 +16,7 @@ public class Interactables : MonoBehaviour
     private GameObject player;
     public GameObject box;
     public Sprite check;
+    public GameObject closet;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Interactables : MonoBehaviour
         currentEnergy = maxEnergy;
         energyBar.SetMaxEnergy(maxEnergy);
         player = GameObject.Find("Player");
+
     }
 
     // Update is called once per frame
@@ -32,14 +34,24 @@ public class Interactables : MonoBehaviour
         currentEnergy = energyBar.energySlider.value;
         if(Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
         {
-            taskIsDone = true;
-            glow.SetActive(false);
-            LoseEnergy(energyCost);
-            if(gameObject.name == "Dresser")
+            if(tag != "Vacuum")
             {
-                player.GetComponent<Animator>().SetBool("gotDressed", true);
+                taskIsDone = true;
+                glow.SetActive(false);
+                LoseEnergy(energyCost);
+                if (gameObject.name == "Dresser")
+                {
+                    player.GetComponent<Animator>().SetBool("gotDressed", true);
+                }
+                box.GetComponent<SpriteRenderer>().sprite = check;
             }
-            box.GetComponent<SpriteRenderer>().sprite = check;
+            else if(tag == "Vacuum" && closet.activeInHierarchy)
+            {
+                taskIsDone = true;
+                glow.SetActive(false);
+                LoseEnergy(energyCost);
+                box.GetComponent<SpriteRenderer>().sprite = check;
+            }
         }
     }
 
