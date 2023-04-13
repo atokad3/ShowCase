@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         clock.transform.eulerAngles = new Vector3(0, 0, time);
-        dayText.text = weekdays[day];
+       dayText.text = weekdays[day];
     }
 
     private void LoseEnergy(int energyLoss)
