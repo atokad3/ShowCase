@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,12 +44,14 @@ public class GameManager : MonoBehaviour
     {
         day += 1;
         PlayerPrefs.SetInt("Weekday", day);
+     
     }
 
     public void ResetDay()
     {
         PlayerPrefs.SetInt("Weekday", 0);
         PlayerPrefs.SetInt("Time", -45);
+        
     }
 
     public void LoadDay()
