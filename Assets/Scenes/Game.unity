@@ -5176,7 +5176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGoTo: {x: 0, y: 0, z: 0}
+  playerGoTo: {x: 60, y: 9.5, z: 1}
   cameraGoTo: {x: 59.59, y: 11.56, z: 0}
   currentRoom: {fileID: 1685388868}
   newRoom: {fileID: 816414460}
