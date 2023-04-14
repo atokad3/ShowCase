@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public EnergyBar energyBar;
     public int maxEnergy = 100;
     public int currentEnergy;
+    public GameObject morning;
+    public GameObject night;
 
 
     // Start is called before the first frame update
@@ -34,7 +36,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       clock.transform.eulerAngles = new Vector3(0, 0, timeRot[time]);
+        if (time <= 3)
+        {
+            morning.SetActive(true);
+            night.SetActive(false);
+        }
+        else if (time >= 4)
+        {
+            morning.SetActive(false);
+            night.SetActive(true);
+        }
+        clock.transform.eulerAngles = new Vector3(0, 0, timeRot[time]);
        dayText.text = weekdays[day];
         timeText.text = displayTimes[time];
        foreach (GameObject room in rooms)

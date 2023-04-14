@@ -9,6 +9,7 @@ public class Interactables : MonoBehaviour
     public bool taskIsDone;
     public int taskNum;
 
+    public int time;
     public int energyCost;
     public EnergyBar energyBar;
     public float maxEnergy = 100;

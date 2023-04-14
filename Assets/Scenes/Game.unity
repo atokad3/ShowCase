@@ -3364,6 +3364,8 @@ MonoBehaviour:
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
+  morning: {fileID: 1304957234}
+  night: {fileID: 1157269472}
 --- !u!1 &540270906
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,13 +4009,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671414502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.02, y: 0.39, z: -0.30815244}
+  m_LocalPosition: {x: -18.02, y: 0.38999987, z: -0.30815244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 141634693}
   m_Father: {fileID: 1335759764}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &671414504
 MonoBehaviour:
@@ -4274,6 +4276,7 @@ MonoBehaviour:
   glow: {fileID: 209164929}
   taskIsDone: 0
   taskNum: 3
+  time: 0
   energyCost: 30
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -4281,6 +4284,8 @@ MonoBehaviour:
   box: {fileID: 823139739}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!61 &729382316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4315,13 +4320,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729382314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.384567, y: 2.0667672, z: -0.47644633}
+  m_LocalPosition: {x: 22.663485, y: -3.1289062, z: -0.17190447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 209164931}
-  m_Father: {fileID: 1335759764}
-  m_RootOrder: 3
+  m_Father: {fileID: 1304957235}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745000413
 GameObject:
@@ -4978,7 +4983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &843137355
 Transform:
   m_ObjectHideFlags: 0
@@ -4987,13 +4992,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843137354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.93, y: -1.43, z: -0.5814943}
+  m_LocalPosition: {x: 42.208923, y: -6.6256733, z: -0.27695242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1507724748}
-  m_Father: {fileID: 1335759764}
-  m_RootOrder: 6
+  m_Father: {fileID: 1157269473}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &843137356
 MonoBehaviour:
@@ -5010,6 +5015,7 @@ MonoBehaviour:
   glow: {fileID: 1507724747}
   taskIsDone: 0
   taskNum: 6
+  time: 0
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -5017,6 +5023,8 @@ MonoBehaviour:
   box: {fileID: 460221527}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!61 &843137357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6152,6 +6160,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090388144}
   m_CullTransparentMesh: 1
+--- !u!1 &1157269472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157269473}
+  m_Layer: 0
+  m_Name: Night
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157269473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157269472}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.721082, y: 5.1956735, z: -0.3045419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1721341065}
+  - {fileID: 1891022722}
+  - {fileID: 843137355}
+  - {fileID: 1179721397}
+  m_Father: {fileID: 1335759764}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160815661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,13 +6539,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166748765}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.64, y: 12.556767, z: -0.5814943}
+  m_LocalPosition: {x: 1.9189186, y: 7.361094, z: -0.27695242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 341602642}
-  m_Father: {fileID: 1335759764}
-  m_RootOrder: 4
+  m_Father: {fileID: 1304957235}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1166748768
 MonoBehaviour:
@@ -6519,6 +6562,7 @@ MonoBehaviour:
   glow: {fileID: 341602640}
   taskIsDone: 0
   taskNum: 4
+  time: 0
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -6526,6 +6570,8 @@ MonoBehaviour:
   box: {fileID: 1950407141}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!1 &1170797577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6636,13 +6682,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179721396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.33, y: 15.7, z: -0.30815244}
+  m_LocalPosition: {x: -3.3910809, y: 10.504326, z: -0.0036105663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1553087998}
-  m_Father: {fileID: 1335759764}
-  m_RootOrder: 7
+  m_Father: {fileID: 1157269473}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1179721398
 MonoBehaviour:
@@ -6659,6 +6705,7 @@ MonoBehaviour:
   glow: {fileID: 1553087997}
   taskIsDone: 1
   taskNum: 7
+  time: 0
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -6666,6 +6713,8 @@ MonoBehaviour:
   box: {fileID: 1969042106}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!61 &1179721399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6863,6 +6912,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1304957234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304957235}
+  m_Layer: 0
+  m_Name: Morning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1304957235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304957234}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.721082, y: 5.1956735, z: -0.3045419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1329276082}
+  - {fileID: 729382317}
+  - {fileID: 1166748767}
+  m_Father: {fileID: 1335759764}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1326520155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6999,12 +7082,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329276080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.605435, y: 1.7007062, z: -0.30815244}
+  m_LocalPosition: {x: -18.326517, y: -3.494967, z: -0.0036105663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 346857800}
-  m_Father: {fileID: 1335759764}
+  m_Father: {fileID: 1304957235}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1329276083
@@ -7022,6 +7105,7 @@ MonoBehaviour:
   glow: {fileID: 346857798}
   taskIsDone: 1
   taskNum: 1
+  time: 0
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -7029,6 +7113,8 @@ MonoBehaviour:
   box: {fileID: 745000413}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!1 &1335759763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7057,14 +7143,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1329276082}
   - {fileID: 671414503}
-  - {fileID: 1721341065}
-  - {fileID: 729382317}
-  - {fileID: 1166748767}
-  - {fileID: 1891022722}
-  - {fileID: 843137355}
-  - {fileID: 1179721397}
+  - {fileID: 1304957235}
+  - {fileID: 1157269473}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8660,6 +8741,7 @@ MonoBehaviour:
   glow: {fileID: 2139882024}
   taskIsDone: 0
   taskNum: 2
+  time: 0
   energyCost: 30
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -8667,6 +8749,8 @@ MonoBehaviour:
   box: {fileID: 1547538192}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!61 &1721341064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8701,13 +8785,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721341062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.134567, y: 1.2902411, z: -0.50659025}
+  m_LocalPosition: {x: 14.413485, y: -3.9054322, z: -0.20204839}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2139882026}
-  m_Father: {fileID: 1335759764}
-  m_RootOrder: 2
+  m_Father: {fileID: 1157269473}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728801821
 GameObject:
@@ -9285,13 +9369,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891022721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.69, y: 0.01, z: -0.5814943}
+  m_LocalPosition: {x: 32.968918, y: -5.185673, z: -0.27695242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 877399438}
-  m_Father: {fileID: 1335759764}
-  m_RootOrder: 5
+  m_Father: {fileID: 1157269473}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1891022723
 MonoBehaviour:
@@ -9308,6 +9392,7 @@ MonoBehaviour:
   glow: {fileID: 877399437}
   taskIsDone: 0
   taskNum: 5
+  time: 0
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -9315,6 +9400,8 @@ MonoBehaviour:
   box: {fileID: 202042529}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 764988289}
+  morning: {fileID: 0}
+  night: {fileID: 0}
 --- !u!61 &1891022724
 BoxCollider2D:
   m_ObjectHideFlags: 0
