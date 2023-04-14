@@ -3335,6 +3335,14 @@ MonoBehaviour:
   - Friday
   - Saturday
   - Sunday
+  rooms:
+  - {fileID: 1971050427}
+  - {fileID: 1884984521}
+  - {fileID: 1688611002}
+  - {fileID: 583233768}
+  - {fileID: 1685388868}
+  - {fileID: 1575481792}
+  - {fileID: 816414460}
   button: {fileID: 917887178}
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -4004,6 +4012,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 141634692}
   taskIsDone: 0
+  tasks:
+  - {fileID: 1329276080}
+  - {fileID: 1721341062}
+  - {fileID: 729382314}
+  - {fileID: 1166748765}
+  - {fileID: 1891022721}
+  - {fileID: 843137354}
+  - {fileID: 1179721396}
 --- !u!61 &671414505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4240,6 +4256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 209164929}
   taskIsDone: 0
+  taskNum: 3
   energyCost: 30
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -4975,6 +4992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 1507724747}
   taskIsDone: 0
+  taskNum: 6
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -6483,6 +6501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 341602640}
   taskIsDone: 0
+  taskNum: 4
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -6622,6 +6641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 1553087997}
   taskIsDone: 1
+  taskNum: 7
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -6983,6 +7003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 346857798}
   taskIsDone: 1
+  taskNum: 1
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -7876,7 +7897,7 @@ MonoBehaviour:
   checklist: {fileID: 204512586}
   anim: {fileID: 1526395450}
   PauseGame: {fileID: 1728801821}
-  doorClicked: 0
+  mainCamera: {fileID: 519420028}
 --- !u!95 &1526395450
 Animator:
   serializedVersion: 4
@@ -8620,6 +8641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 2139882024}
   taskIsDone: 0
+  taskNum: 2
   energyCost: 30
   energyBar: {fileID: 800257007}
   maxEnergy: 100
@@ -9267,6 +9289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 877399437}
   taskIsDone: 0
+  taskNum: 5
   energyCost: 10
   energyBar: {fileID: 800257007}
   maxEnergy: 100
