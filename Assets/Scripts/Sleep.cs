@@ -8,6 +8,7 @@ public class Sleep : MonoBehaviour
 
     public GameObject glow;
     public bool taskIsDone;
+    public List<GameObject> tasks;
     private GameObject gameManager;
 
     // Start is called before the first frame update
@@ -21,6 +22,14 @@ public class Sleep : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
         {
+            foreach(GameObject task in tasks)
+            {
+                task.GetComponent<Interactables>().DayChangeTask();
+            }
+            PlayerPrefs.DeleteKey("StopX");
+            PlayerPrefs.DeleteKey("StopY");
+            PlayerPrefs.DeleteKey("StopCamX");
+            PlayerPrefs.DeleteKey("StopCamY");
             taskIsDone = true;
             glow.SetActive(false);
             gameManager.GetComponent<GameManager>().ChangeDay();

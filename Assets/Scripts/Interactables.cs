@@ -7,6 +7,7 @@ public class Interactables : MonoBehaviour
 
     public GameObject glow;
     public bool taskIsDone;
+    public int taskNum;
 
     public int energyCost;
     public EnergyBar energyBar;
@@ -25,7 +26,10 @@ public class Interactables : MonoBehaviour
         currentEnergy = maxEnergy;
         energyBar.SetMaxEnergy(maxEnergy);
         player = GameObject.Find("Player");
-
+        if(PlayerPrefs.HasKey("task" + taskNum))
+        {
+            LoadTask();
+        }
     }
 
     // Update is called once per frame
@@ -44,6 +48,7 @@ public class Interactables : MonoBehaviour
                     player.GetComponent<Animator>().SetBool("gotDressed", true);
                 }
                 box.GetComponent<SpriteRenderer>().sprite = check;
+                PlayerPrefs.SetString("task" + taskNum, "Done");
             }
             else if(tag == "Vacuum" && closet.activeInHierarchy)
             {
@@ -51,8 +56,24 @@ public class Interactables : MonoBehaviour
                 glow.SetActive(false);
                 LoseEnergy(energyCost);
                 box.GetComponent<SpriteRenderer>().sprite = check;
+                PlayerPrefs.SetString("task" + taskNum, "Done");
             }
         }
+    }
+
+    private void LoadTask()
+    {
+        taskIsDone = true;
+        box.GetComponent<SpriteRenderer>().sprite = check;
+        if(name == "Dresser")
+        {
+            player.GetComponent<Animator>().SetBool("gotDressed", true);
+        }
+    }
+
+    public void DayChangeTask()
+    {
+        PlayerPrefs.DeleteKey("task" + taskNum);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     public GameObject checklist;
     public Animator anim;
     public GameObject PauseGame;
-    public bool doorClicked;
+    public GameObject mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("StopX"))
+        {
+            LoadCharacter();
+        }
     }
 
     // Update is called once per frame
@@ -50,6 +53,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Unpause()
+    {
+        PauseGame.SetActive(false);
+        Time.timeScale = 1;
+        PlayerPrefs.SetFloat("StopX", transform.position.x);
+        PlayerPrefs.SetFloat("StopY", transform.position.y);
+        PlayerPrefs.SetFloat("StopCamX", mainCamera.transform.position.x);
+        PlayerPrefs.SetFloat("StopCamY", mainCamera.transform.position.y);
+    }
+
     private void Checklist()
     {
         if (Input.GetKeyDown(KeyCode.Tab) && !checklist.activeInHierarchy)
@@ -81,6 +94,12 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("walking", false);
         }
+    }
+
+    private void LoadCharacter()
+    {
+        transform.position = new Vector3(PlayerPrefs.GetFloat("StopX"), PlayerPrefs.GetFloat("StopY"), 0);
+        mainCamera.transform.position = new Vector3(PlayerPrefs.GetFloat("StopCamX"), PlayerPrefs.GetFloat("StopCamY"), -10);
     }
 
 }
