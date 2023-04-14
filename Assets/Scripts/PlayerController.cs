@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Unpause()
+    {
+        PauseGame.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     private void Checklist()
     {
         if (Input.GetKeyDown(KeyCode.Tab) && !checklist.activeInHierarchy)

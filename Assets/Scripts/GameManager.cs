@@ -47,13 +47,6 @@ public class GameManager : MonoBehaviour
      
     }
 
-    public void ResetDay()
-    {
-        PlayerPrefs.SetInt("Weekday", 0);
-        PlayerPrefs.SetInt("Time", -45);
-        
-    }
-
     public void LoadDay()
     {
         // load day of week
