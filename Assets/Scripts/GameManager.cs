@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt(room.name, 0);
             }
         }
+        if (day >= 6)
+        {
+            Debug.Log("yoyoyo");
+            SceneManager.LoadScene(sceneBuildIndex: 4);
+
+        }
     }
 
     private void LoseEnergy(int energyLoss)

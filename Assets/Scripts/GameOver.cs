@@ -5,26 +5,29 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 
-    public GameManager gm;
+    private GameObject gm;
+    public int day;
   
     // Start is called before the first frame update
     void Start()
     {
-        gm = FindObjectOfType<GameManager>();
-       // gm.get
+        gm = GameObject.Find("Main Camera");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (day > 6)
+
+        day = PlayerPrefs.GetInt("Weekday");
+
+        if (day >= 6)
         {
             Debug.Log("yoyoyo");
             SceneManager.LoadScene(sceneBuildIndex: 4);
 
         }
-        */
+        
     }
 
 
