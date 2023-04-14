@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
     public int day;
     public int time;
     public TextMeshProUGUI dayText;
+    public TextMeshProUGUI timeText;
     public GameObject clock;
     public List<string> weekdays;
     public List<GameObject> rooms;
+    public List<string> displayTimes;
+    public List<float> timeRot;
     public GameObject button;
     public EnergyBar energyBar;
     public int maxEnergy = 100;
@@ -31,9 +34,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       clock.transform.eulerAngles = new Vector3(0, 0, time);
+       clock.transform.eulerAngles = new Vector3(0, 0, timeRot[time]);
        dayText.text = weekdays[day];
-        foreach (GameObject room in rooms)
+        timeText.text = displayTimes[time];
+       foreach (GameObject room in rooms)
         {
             if (room.activeInHierarchy)
             {
@@ -97,7 +101,7 @@ public class GameManager : MonoBehaviour
         }
         else if (!PlayerPrefs.HasKey("Time"))
         {
-            time = -45;
+            time = 0;
         }
     }
 }

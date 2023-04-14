@@ -51,6 +51,6 @@ public class ChangeScene : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Bedroom", 1);
-        PlayerPrefs.SetInt("Time", -45);
+        PlayerPrefs.SetInt("Time", 0);
     }
 }
