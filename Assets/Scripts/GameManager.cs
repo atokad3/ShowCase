@@ -81,8 +81,14 @@ public class GameManager : MonoBehaviour
         {
             morning.SetActive(false);
             night.SetActive(true);
-            closet.interactable = false;
+            closet.interactable = true;
             car.interactable = false;
+        }
+
+
+        if (time >= 7)
+        {
+            GameObject.Find("bedroomNight").SetActive(true);
         }
     }
 
