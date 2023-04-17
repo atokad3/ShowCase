@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Daytime : MonoBehaviour
 {
-    private int time;
     public int setTime;
     public float doorNum;
     private GameObject gameManager;
@@ -20,7 +19,6 @@ public class Daytime : MonoBehaviour
 
     void Update()
     {
-        time = gameManager.GetComponent<GameManager>().time;
         if(PlayerPrefs.GetInt("Door" + doorNum) == 1)
         {
             timeChanged = true;
@@ -39,7 +37,7 @@ public class Daytime : MonoBehaviour
         if(timeChanged == false)
         {
             gameManager.GetComponent<GameManager>().time = setTime;
-            PlayerPrefs.SetInt("Time", time);
+            PlayerPrefs.SetInt("Time", gameManager.GetComponent<GameManager>().time);
             timeChanged = true;
             PlayerPrefs.SetInt("Door" + doorNum, 1);
         }
