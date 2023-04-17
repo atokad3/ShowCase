@@ -4075,6 +4075,9 @@ MonoBehaviour:
   - {fileID: 1891022721}
   - {fileID: 843137354}
   - {fileID: 1179721396}
+  doors:
+  - {fileID: 726980941}
+  - {fileID: 917887178}
 --- !u!61 &671414505
 BoxCollider2D:
   m_ObjectHideFlags: 0

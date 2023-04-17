@@ -14,31 +14,25 @@ public class Daytime : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Main Camera");
-        if(PlayerPrefs.GetInt("Door") == 1)
-        {
-            timeChanged = true;
-        }
-        else
-        {
-            timeChanged = false;
-        }
+
     }
 
 
     void Update()
     {
         time = gameManager.GetComponent<GameManager>().time;
-        if(timeChanged == false)
+        if(PlayerPrefs.GetInt("Door" + doorNum) == 1)
         {
-            PlayerPrefs.SetInt("Door" + doorNum, 0);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Door" + doorNum, 0);
+            timeChanged = true;
         }
     }
 
- 
+    public void ResetBool()
+    {
+        PlayerPrefs.SetInt("Door" + doorNum, 0);
+    }
+
+
     public void ClockTimer()
     {
         // sets time in game to setTime when button is pressed
@@ -47,6 +41,7 @@ public class Daytime : MonoBehaviour
             gameManager.GetComponent<GameManager>().time = setTime;
             PlayerPrefs.SetInt("Time", time);
             timeChanged = true;
+            PlayerPrefs.SetInt("Door" + doorNum, 1);
         }
     }
 

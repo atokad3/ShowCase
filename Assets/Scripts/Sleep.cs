@@ -9,6 +9,7 @@ public class Sleep : MonoBehaviour
     public GameObject glow;
     public bool taskIsDone;
     public List<GameObject> tasks;
+    public List<GameObject> doors;
     private GameObject gameManager;
 
     void Start()
@@ -20,20 +21,10 @@ public class Sleep : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
         {
-            foreach(GameObject task in tasks)
-            {
-                // resets all tasks
-                task.GetComponent<Interactables>().DayChangeTask();
-            }
             // resets player & camera pos and goes to next day
-            PlayerPrefs.DeleteKey("StopX");
-            PlayerPrefs.DeleteKey("StopY");
-            PlayerPrefs.DeleteKey("StopCamX");
-            PlayerPrefs.DeleteKey("StopCamY");
-            PlayerPrefs.DeleteKey("CurrentEnergy");
+            ResetStuff();
             taskIsDone = true;
             glow.SetActive(false);
-            PlayerPrefs.SetInt("Time", 0);
             gameManager.GetComponent<GameManager>().ChangeDay();
             SceneManager.LoadScene("Game");
         }
@@ -52,4 +43,22 @@ public class Sleep : MonoBehaviour
         glow.SetActive(false);
     }
 
+    private void ResetStuff()
+    {
+        PlayerPrefs.DeleteKey("StopX");
+        PlayerPrefs.DeleteKey("StopY");
+        PlayerPrefs.DeleteKey("StopCamX");
+        PlayerPrefs.DeleteKey("StopCamY");
+        PlayerPrefs.DeleteKey("CurrentEnergy");
+        PlayerPrefs.SetInt("Time", 0);
+        foreach(GameObject task in tasks)
+        {
+            // resets all tasks
+            task.GetComponent<Interactables>().DayChangeTask();
+        }
+        foreach(GameObject door in doors)
+        {
+            door.GetComponent<Daytime>().ResetBool();
+        }
+    }
 }
