@@ -20,6 +20,12 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 1);
     }
+
+    public void timeTaco()
+    {
+        SceneManager.LoadScene("TimeTaco");
+    }
+
     public void Quit()
     {
 #if UNITY_STANDALONE

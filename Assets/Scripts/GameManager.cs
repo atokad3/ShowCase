@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
     public GameObject morning;
     public GameObject night;
     public Button closet;
-    public Button car;
+    public Button carToSchool;
+    public Button carToWork;
 
 
     // Start is called before the first frame update
@@ -75,14 +76,16 @@ public class GameManager : MonoBehaviour
             morning.SetActive(true);
             night.SetActive(false);
             closet.interactable = false;
-            car.interactable = true;
+            carToSchool.interactable = true;
+            carToWork.interactable = true;
         }
         else if (time >= 4)
         {
             morning.SetActive(false);
             night.SetActive(true);
             closet.interactable = true;
-            car.interactable = false;
+            carToSchool.interactable = false;
+            carToWork.interactable = false;
         }
 
 
