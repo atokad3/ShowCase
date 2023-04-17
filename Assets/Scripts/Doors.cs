@@ -24,14 +24,17 @@ public class Doors : MonoBehaviour
 
     public void Move()
     {
-            player.transform.position = playerGoTo;
-            mainCamera.transform.position = cameraGoTo;
-            currentRoom.SetActive(false);
-            newRoom.SetActive(true);
+        //moves player and camera to new room
+        player.transform.position = playerGoTo;
+        mainCamera.transform.position = cameraGoTo;
+        // changes which room gameobject is active
+        currentRoom.SetActive(false);
+        newRoom.SetActive(true);
     }
 
     public void Closet()
     {
+        // opens closet
         gameObject.SetActive(false);
         openDoor.SetActive(true);
     }

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         if (PlayerPrefs.HasKey("StopX"))
-        {
+        { // if has save, load
             LoadCharacter();
         }
     }
@@ -25,27 +25,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (!PauseGame.activeInHierarchy)
-        {
+        { // if not pause, player move
             PlayerMovement();
             Checklist();
         }
         Pause();
     }
 
-    /*
-     * Each day, player chooses activity
-     * Each activity costs energy
-     * When daily energy remaining minus starting energy < 0, sleep
-     * Rinse, repeat
-     */
 
     private void Pause()
-    {
+    { // pauses game
         if (Input.GetKeyDown(KeyCode.Escape) && !PauseGame.activeInHierarchy)
         {
             PauseGame.SetActive(true);
             Time.timeScale = 0;
         }
+        //unpause game
         else if (Input.GetKeyDown(KeyCode.Escape) && PauseGame.activeInHierarchy)
         {
             PauseGame.SetActive(false);
@@ -55,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public void Unpause()
     {
+        //unpauses and saves game when goes quits
         PauseGame.SetActive(false);
         Time.timeScale = 1;
         PlayerPrefs.SetFloat("StopX", transform.position.x);
@@ -98,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void LoadCharacter()
     {
+        // loads character and camera positions
         transform.position = new Vector3(PlayerPrefs.GetFloat("StopX"), PlayerPrefs.GetFloat("StopY"), 0);
         mainCamera.transform.position = new Vector3(PlayerPrefs.GetFloat("StopCamX"), PlayerPrefs.GetFloat("StopCamY"), -10);
     }

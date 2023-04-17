@@ -13,7 +13,11 @@ public class EnergyBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // if energy has save, load saved energy
+        if (PlayerPrefs.HasKey("CurrentEnergy"))
+        {
+            SetEnergy(PlayerPrefs.GetFloat("CurrentEnergy"));
+        }
     }
 
     // Update is called once per frame
