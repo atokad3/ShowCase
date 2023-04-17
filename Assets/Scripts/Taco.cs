@@ -20,12 +20,12 @@ public class Taco : MonoBehaviour
         
     }
 
-    private void AddIngredient()
+    public void AddIngredient()
     {
-
+        Debug.Log("oioioiioioioiooioioiioiooiiooioi JOSKE");
 
         Vector2 spawnLocation = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
 
-        //Instantiate(Ingredient, spawnLocation, .gameObject.transform.rotation);
+        Instantiate(Ingredient, spawnLocation, Ingredient.transform.rotation);
     }
 }
