@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
         // if after sunday then gameover
         if (day == 7)
         {
-            Debug.Log("yoyoyo");
+            PlayerPrefs.SetString("FinishGame?", "Yes");
             SceneManager.LoadScene(sceneBuildIndex: 4);
         }
     }

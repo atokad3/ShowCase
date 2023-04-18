@@ -75,4 +75,9 @@ public class ChangeScene : MonoBehaviour
         PlayerPrefs.SetInt("Bedroom", 1);
         PlayerPrefs.SetInt("Time", 0);
     }
+
+    public void FinishGame()
+    {
+        PlayerPrefs.SetString("FinishGame?", "Yes");
+    }
 }
