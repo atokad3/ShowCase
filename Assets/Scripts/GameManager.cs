@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private float currentEnergy;
 
     // day & time
-    private int day;
+    public int day;
     public int time;
     public TextMeshProUGUI dayText;
     public TextMeshProUGUI timeText;
