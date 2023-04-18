@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private float currentEnergy;
 
     // day & time
-    private int day;
+    public int day;
     public int time;
     public TextMeshProUGUI dayText;
     public TextMeshProUGUI timeText;
@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
     public GameObject morning;
     public GameObject night;
     public Button closet;
-    public Button car;
+    public GameObject carToSchool;
+    public GameObject carToWork;
+    private GameObject carInUse;
+    private GameObject keys;
 
 
     // Start is called before the first frame update
@@ -36,6 +39,9 @@ public class GameManager : MonoBehaviour
         LoadDay();
         LoadRoom();
         HowMuchEnergy();
+        carToSchool.SetActive(false);
+        carToWork.SetActive(false);
+        keys = GameObject.Find("Keys");
     }
 
     // Update is called once per frame
@@ -75,14 +81,27 @@ public class GameManager : MonoBehaviour
             morning.SetActive(true);
             night.SetActive(false);
             closet.interactable = false;
-            car.interactable = true;
+            if (keys.GetComponent<Interactables>().taskIsDone)
+            {
+            carInUse.SetActive(true);
+            }
+            else if (!keys.GetComponent<Interactables>().taskIsDone)
+            {
+                Debug.Log("Get Keys!!");
+            }
         }
         else if (time >= 4)
         {
             morning.SetActive(false);
             night.SetActive(true);
-            closet.interactable = false;
-            car.interactable = false;
+            closet.interactable = true;
+            carInUse.SetActive(false);
+        }
+
+
+        if (time >= 7)
+        {
+            GameObject.Find("bedroomNight").SetActive(true);
         }
     }
 
@@ -100,6 +119,14 @@ public class GameManager : MonoBehaviour
                 room.SetActive(false);
             }
         }
+    }
+
+    public void LoseEnergy(int energyLoss)
+    {
+        // makes tasks cost energy
+        currentEnergy -= energyLoss;
+        energyBar.SetEnergy(currentEnergy);
+        PlayerPrefs.SetFloat("CurrentEnergy", currentEnergy);
     }
 
     private void HowMuchEnergy()
@@ -121,17 +148,29 @@ public class GameManager : MonoBehaviour
         {
             maxEnergy = 75;
         }
-        else if (day == 4)
+        else if (day == 4 && !PlayerPrefs.HasKey("FinishGame?"))
         {
             maxEnergy = 45;
         }
-        else if (day == 5)
+        else if (day == 5 && !PlayerPrefs.HasKey("FinishGame?"))
         {
             maxEnergy = 15;
         }
-        else if (day == 6)
+        else if (day == 6 && !PlayerPrefs.HasKey("FinishGame?"))
         {
             maxEnergy = 0;
+        }
+        else if (day == 4 && PlayerPrefs.HasKey("FinishGame?"))
+        {
+            maxEnergy = 85;
+        }
+        else if (day == 5 && PlayerPrefs.HasKey("FinishGame?"))
+        {
+            maxEnergy = 95;
+        }
+        else if (day == 6 && PlayerPrefs.HasKey("FinishGame?"))
+        {
+            maxEnergy = 100;
         }
         PlayerPrefs.SetFloat("MaxEnergy", maxEnergy);
         energyBar.SetMaxEnergy(maxEnergy);
@@ -165,10 +204,18 @@ public class GameManager : MonoBehaviour
         {
             time = 0;
         }
+        // does car take to work or school
+        if(day >= 5)
+        {
+            carInUse = carToWork;
+        }
+        else
+        {
+            carInUse = carToSchool;
+        }
         // if after sunday then gameover
         if (day == 7)
         {
-            Debug.Log("yoyoyo");
             SceneManager.LoadScene(sceneBuildIndex: 4);
         }
     }
