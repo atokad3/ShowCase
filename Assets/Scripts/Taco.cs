@@ -24,8 +24,9 @@ public class Taco : MonoBehaviour
     {
         Debug.Log("oioioiioioioiooioioiioiooiiooioi JOSKE");
 
-        Vector2 spawnLocation = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+        Vector2 spawnLocation = new Vector2(Random.Range(-3.5f, 3.5f), Random.Range(-3.5f, 3.5f));
 
         Instantiate(Ingredient, spawnLocation, Ingredient.transform.rotation);
     }
+
 }
