@@ -27,8 +27,10 @@ public class GameManager : MonoBehaviour
     public GameObject morning;
     public GameObject night;
     public Button closet;
-    public Button carToSchool;
-    public Button carToWork;
+    public GameObject carToSchool;
+    public GameObject carToWork;
+    private GameObject carInUse;
+    private GameObject keys;
 
 
     // Start is called before the first frame update
@@ -37,6 +39,9 @@ public class GameManager : MonoBehaviour
         LoadDay();
         LoadRoom();
         HowMuchEnergy();
+        carToSchool.SetActive(false);
+        carToWork.SetActive(false);
+        keys = GameObject.Find("Keys");
     }
 
     // Update is called once per frame
@@ -76,16 +81,21 @@ public class GameManager : MonoBehaviour
             morning.SetActive(true);
             night.SetActive(false);
             closet.interactable = false;
-            carToSchool.interactable = true;
-            carToWork.interactable = true;
+            if (keys.GetComponent<Interactables>().taskIsDone)
+            {
+            carInUse.SetActive(true);
+            }
+            else if (!keys.GetComponent<Interactables>().taskIsDone)
+            {
+                Debug.Log("Get Keys!!");
+            }
         }
         else if (time >= 4)
         {
             morning.SetActive(false);
             night.SetActive(true);
             closet.interactable = true;
-            carToSchool.interactable = false;
-            carToWork.interactable = false;
+            carInUse.SetActive(false);
         }
 
 
@@ -109,6 +119,14 @@ public class GameManager : MonoBehaviour
                 room.SetActive(false);
             }
         }
+    }
+
+    public void LoseEnergy(int energyLoss)
+    {
+        // makes tasks cost energy
+        currentEnergy -= energyLoss;
+        energyBar.SetEnergy(currentEnergy);
+        PlayerPrefs.SetFloat("CurrentEnergy", currentEnergy);
     }
 
     private void HowMuchEnergy()
@@ -173,6 +191,15 @@ public class GameManager : MonoBehaviour
         else if (!PlayerPrefs.HasKey("Time"))
         {
             time = 0;
+        }
+        // does car take to work or school
+        if(day >= 5)
+        {
+            carInUse = carToWork;
+        }
+        else
+        {
+            carInUse = carToSchool;
         }
         // if after sunday then gameover
         if (day == 7)

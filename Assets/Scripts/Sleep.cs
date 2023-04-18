@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Sleep : MonoBehaviour
+public class Sleep : Interactables
 {
-
-    public GameObject glow;
-    public bool taskIsDone;
     public List<GameObject> tasks;
     public List<GameObject> doors;
     private GameObject gameManager;
@@ -23,8 +20,6 @@ public class Sleep : MonoBehaviour
         {
             // resets player & camera pos and goes to next day
             ResetStuff();
-            taskIsDone = true;
-            glow.SetActive(false);
             gameManager.GetComponent<GameManager>().ChangeDay();
             SceneManager.LoadScene("Game");
         }

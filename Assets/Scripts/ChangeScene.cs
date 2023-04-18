@@ -4,10 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
+
+    public GameObject box;
+    public Sprite check;
+    public GameObject gm;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("Task10"))
+        { 
+            box.GetComponent<SpriteRenderer>().sprite = check;
+        }
     }
 
     // Update is called once per frame
@@ -22,8 +30,15 @@ public class ChangeScene : MonoBehaviour
     }
 
     public void timeTaco()
-    {
+    {        
         SceneManager.LoadScene("TimeTaco");
+    }
+
+    public void SchoolAndWork()
+    {
+        box.GetComponent<SpriteRenderer>().sprite = check;
+        PlayerPrefs.SetString("task10", "Done");
+        gm.GetComponent<GameManager>().LoseEnergy(10);
     }
 
     public void Quit()
