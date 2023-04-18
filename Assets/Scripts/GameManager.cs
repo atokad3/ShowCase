@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
     public void LoseEnergy(int energyLoss)
     {
         // makes tasks cost energy
+        currentEnergy = PlayerPrefs.GetFloat("CurrentEnergy");
         currentEnergy -= energyLoss;
         energyBar.SetEnergy(currentEnergy);
         PlayerPrefs.SetFloat("CurrentEnergy", currentEnergy);

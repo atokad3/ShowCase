@@ -3391,6 +3391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBar: {fileID: 800257007}
+  day: 0
   time: 0
   dayText: {fileID: 1591783522}
   timeText: {fileID: 2132689128}
@@ -3411,8 +3412,9 @@ MonoBehaviour:
   - 8:00
   - 2:30
   - 2:45
-  - 3:15
-  - 4:30
+  - 6:30
+  - 7:30
+  - 10:00
   timeRot:
   - -45
   - -35
@@ -3420,7 +3422,9 @@ MonoBehaviour:
   - -10
   - 10
   - 15
-  - 30
+  - 40
+  - 50
+  - 70
   rooms:
   - {fileID: 1971050427}
   - {fileID: 1884984521}
@@ -3581,8 +3585,9 @@ GameObject:
   - component: {fileID: 541971035}
   - component: {fileID: 541971034}
   - component: {fileID: 541971033}
+  - component: {fileID: 541971036}
   m_Layer: 5
-  m_Name: Door (1)
+  m_Name: To Bedroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3664,6 +3669,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 541971036}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &541971034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,6 +3719,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541971030}
   m_CullTransparentMesh: 1
+--- !u!114 &541971036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541971030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 8
+  doorNum: 8
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &583233768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,8 +4208,15 @@ MonoBehaviour:
   - {fileID: 2044672063}
   - {fileID: 1554705880}
   doors:
-  - {fileID: 726980941}
+  - {fileID: 845795228}
+  - {fileID: 541971030}
   - {fileID: 917887178}
+  - {fileID: 1908564923}
+  - {fileID: 914369556}
+  - {fileID: 1084905438}
+  - {fileID: 1473666712}
+  - {fileID: 726980941}
+  - {fileID: 1779986817}
 --- !u!61 &671414505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4383,6 +4423,7 @@ MonoBehaviour:
   setTime: 4
   doorNum: 4
   timeChanged: 0
+  nightDoor: 0
 --- !u!1 &729382314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,7 +4458,7 @@ MonoBehaviour:
   taskIsDone: 0
   taskNum: 3
   time: 0
-  energyCost: 30
+  energyCost: 15
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
@@ -5154,7 +5195,7 @@ MonoBehaviour:
   taskIsDone: 0
   taskNum: 6
   time: 0
-  energyCost: 10
+  energyCost: 5
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
@@ -5200,6 +5241,7 @@ GameObject:
   - component: {fileID: 845795232}
   - component: {fileID: 845795231}
   - component: {fileID: 845795230}
+  - component: {fileID: 845795234}
   m_Layer: 5
   m_Name: To Hallway
   m_TagString: Untagged
@@ -5301,6 +5343,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 845795234}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &845795232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5339,6 +5393,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845795228}
   m_CullTransparentMesh: 1
+--- !u!114 &845795234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845795228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 7
+  doorNum: 7
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &876502782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,6 +5859,7 @@ GameObject:
   - component: {fileID: 914369560}
   - component: {fileID: 914369559}
   - component: {fileID: 914369558}
+  - component: {fileID: 914369562}
   m_Layer: 5
   m_Name: To School
   m_TagString: Untagged
@@ -5902,6 +5973,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 914369562}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &914369560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5940,6 +6023,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914369556}
   m_CullTransparentMesh: 1
+--- !u!114 &914369562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914369556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 3
+  doorNum: 3
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &917887178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,6 +6200,7 @@ MonoBehaviour:
   setTime: 1
   doorNum: 1
   timeChanged: 0
+  nightDoor: 0
 --- !u!1 &933566408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6190,6 +6290,7 @@ GameObject:
   - component: {fileID: 1084905442}
   - component: {fileID: 1084905441}
   - component: {fileID: 1084905440}
+  - component: {fileID: 1084905444}
   m_Layer: 5
   m_Name: To Work
   m_TagString: Untagged
@@ -6300,6 +6401,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1084905444}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1084905442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6338,6 +6451,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084905438}
   m_CullTransparentMesh: 1
+--- !u!114 &1084905444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084905438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 3
+  doorNum: 3
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &1090388144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7751,8 +7880,9 @@ GameObject:
   - component: {fileID: 1473666717}
   - component: {fileID: 1473666716}
   - component: {fileID: 1473666715}
+  - component: {fileID: 1473666718}
   m_Layer: 5
-  m_Name: Door (1)
+  m_Name: ToGarage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7834,6 +7964,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1473666718}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1473666716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7872,6 +8014,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473666712}
   m_CullTransparentMesh: 1
+--- !u!114 &1473666718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473666712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 2
+  doorNum: 2
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &1507724747
 GameObject:
   m_ObjectHideFlags: 0
@@ -9283,8 +9441,9 @@ GameObject:
   - component: {fileID: 1779986822}
   - component: {fileID: 1779986821}
   - component: {fileID: 1779986820}
+  - component: {fileID: 1779986823}
   m_Layer: 0
-  m_Name: Door (4)
+  m_Name: To Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9366,6 +9525,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1779986823}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1779986821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9404,6 +9575,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779986817}
   m_CullTransparentMesh: 1
+--- !u!114 &1779986823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779986817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 5
+  doorNum: 5
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &1875007709
 GameObject:
   m_ObjectHideFlags: 0
@@ -9695,8 +9882,9 @@ GameObject:
   - component: {fileID: 1908564928}
   - component: {fileID: 1908564927}
   - component: {fileID: 1908564926}
+  - component: {fileID: 1908564929}
   m_Layer: 5
-  m_Name: Door (1)
+  m_Name: To Hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9778,6 +9966,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1908564929}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1908564927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9816,6 +10016,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908564923}
   m_CullTransparentMesh: 1
+--- !u!114 &1908564929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908564923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 6
+  doorNum: 6
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &1922710210
 GameObject:
   m_ObjectHideFlags: 0
