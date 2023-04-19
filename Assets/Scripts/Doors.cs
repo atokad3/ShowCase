@@ -32,6 +32,25 @@ public class Doors : MonoBehaviour
         newRoom.SetActive(true);
     }
 
+    public void Date()
+    {
+        if(PlayerPrefs.GetFloat("CurrentEnergy") < 10)
+        {
+            Debug.Log("No Date For U");
+        }
+        else if(PlayerPrefs.GetFloat("CurrentEnergy") >= 10)
+        {
+            Move();
+            mainCamera.GetComponent<GameManager>().LoseEnergy(10);
+            openDoor.SetActive(false);
+        }
+    }
+
+    public void Off()
+    {
+        openDoor.SetActive(false);
+    }
+
     public void Closet()
     {
         // opens closet

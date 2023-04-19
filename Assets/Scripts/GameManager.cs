@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     public GameObject roomNight;
     public Button bedroomDoor;
+    public GameObject phone;
+    public bool isWorkDone;
 
 
     // Start is called before the first frame update
@@ -46,6 +48,11 @@ public class GameManager : MonoBehaviour
         carToWork.SetActive(false);
         keys = GameObject.Find("Keys");
         player = GameObject.Find("Player");
+        if (day == 5 && PlayerPrefs.HasKey("Date"))
+        {
+            phone.SetActive(true);
+            PlayerPrefs.DeleteKey("Date");
+        }
     }
 
     // Update is called once per frame
@@ -67,6 +74,10 @@ public class GameManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt(room.name, 0);
             }
+        }
+        if(day == 5 && isWorkDone)
+        {
+            PlayerPrefs.SetString("Date", "Yes");
         }
     }
 
