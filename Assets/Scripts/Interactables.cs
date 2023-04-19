@@ -60,7 +60,8 @@ public class Interactables : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone && energyCost > currentEnergy)
         { // if you have less eneregy than what the task takes, cant do task
-            Debug.Log("Not Enough");
+            glow.GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 1);
+            StartCoroutine(NotEnoughOff());
         }
     }
 
@@ -101,5 +102,11 @@ public class Interactables : MonoBehaviour
         currentEnergy -= energyLoss;
         energyBar.SetEnergy(currentEnergy);
         PlayerPrefs.SetFloat("CurrentEnergy", currentEnergy);
+    }
+
+    IEnumerator NotEnoughOff()
+    {
+        yield return new WaitForSeconds(0.25f);
+        glow.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 }
