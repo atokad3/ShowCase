@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     public GameObject carToWork;
     private GameObject carInUse;
     private GameObject keys;
+    private GameObject player;
+    public GameObject roomNight;
+    public Button bedroomDoor;
 
 
     // Start is called before the first frame update
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         carToSchool.SetActive(false);
         carToWork.SetActive(false);
         keys = GameObject.Find("Keys");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -87,7 +91,7 @@ public class GameManager : MonoBehaviour
             }
             else if (!keys.GetComponent<Interactables>().taskIsDone)
             {
-                Debug.Log("Get Keys!!");
+                Debug.Log("Get Keys!!");  
             }
         }
         else if (time >= 4)
@@ -99,9 +103,15 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (time >= 7)
+        if (time >= 8)
         {
-            GameObject.Find("bedroomNight").SetActive(true);
+            roomNight.SetActive(true);
+            player.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+            bedroomDoor.interactable = false;
+        }
+        else
+        {
+            bedroomDoor.interactable = true;
         }
     }
 
@@ -124,6 +134,7 @@ public class GameManager : MonoBehaviour
     public void LoseEnergy(int energyLoss)
     {
         // makes tasks cost energy
+        currentEnergy = PlayerPrefs.GetFloat("CurrentEnergy");
         currentEnergy -= energyLoss;
         energyBar.SetEnergy(currentEnergy);
         PlayerPrefs.SetFloat("CurrentEnergy", currentEnergy);

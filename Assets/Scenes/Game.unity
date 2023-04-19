@@ -153,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &10828157
 SpriteRenderer:
@@ -289,7 +289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44765743
 GameObject:
@@ -3391,6 +3391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBar: {fileID: 800257007}
+  day: 0
   time: 0
   dayText: {fileID: 1591783522}
   timeText: {fileID: 2132689128}
@@ -3411,8 +3412,9 @@ MonoBehaviour:
   - 8:00
   - 2:30
   - 2:45
-  - 3:15
-  - 4:30
+  - 6:30
+  - 7:30
+  - 10:00
   timeRot:
   - -45
   - -35
@@ -3420,7 +3422,9 @@ MonoBehaviour:
   - -10
   - 10
   - 15
-  - 30
+  - 40
+  - 50
+  - 70
   rooms:
   - {fileID: 1971050427}
   - {fileID: 1884984521}
@@ -3434,6 +3438,8 @@ MonoBehaviour:
   closet: {fileID: 371480536}
   carToSchool: {fileID: 914369556}
   carToWork: {fileID: 1084905438}
+  roomNight: {fileID: 1326520155}
+  bedroomDoor: {fileID: 1090388147}
 --- !u!1 &540270906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,8 +3587,9 @@ GameObject:
   - component: {fileID: 541971035}
   - component: {fileID: 541971034}
   - component: {fileID: 541971033}
+  - component: {fileID: 541971036}
   m_Layer: 5
-  m_Name: Door (1)
+  m_Name: To Bedroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3664,6 +3671,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 541971036}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &541971034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,6 +3721,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541971030}
   m_CullTransparentMesh: 1
+--- !u!114 &541971036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541971030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 8
+  doorNum: 8
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &583233768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,7 +4059,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 050dff72382715141ac12f18872ed4cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4049,7 +4084,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655621489
 GameObject:
@@ -4175,8 +4210,15 @@ MonoBehaviour:
   - {fileID: 2044672063}
   - {fileID: 1554705880}
   doors:
-  - {fileID: 726980941}
+  - {fileID: 845795228}
+  - {fileID: 541971030}
   - {fileID: 917887178}
+  - {fileID: 1908564923}
+  - {fileID: 914369556}
+  - {fileID: 1084905438}
+  - {fileID: 1473666712}
+  - {fileID: 726980941}
+  - {fileID: 1779986817}
 --- !u!61 &671414505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4383,6 +4425,7 @@ MonoBehaviour:
   setTime: 4
   doorNum: 4
   timeChanged: 0
+  nightDoor: 0
 --- !u!1 &729382314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,7 +4460,7 @@ MonoBehaviour:
   taskIsDone: 0
   taskNum: 3
   time: 0
-  energyCost: 30
+  energyCost: 15
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
@@ -5154,7 +5197,7 @@ MonoBehaviour:
   taskIsDone: 0
   taskNum: 6
   time: 0
-  energyCost: 10
+  energyCost: 5
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
@@ -5200,6 +5243,7 @@ GameObject:
   - component: {fileID: 845795232}
   - component: {fileID: 845795231}
   - component: {fileID: 845795230}
+  - component: {fileID: 845795234}
   m_Layer: 5
   m_Name: To Hallway
   m_TagString: Untagged
@@ -5301,6 +5345,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 845795234}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &845795232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5339,6 +5395,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845795228}
   m_CullTransparentMesh: 1
+--- !u!114 &845795234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845795228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 7
+  doorNum: 7
+  timeChanged: 0
+  nightDoor: 1
+--- !u!1 &867134748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 867134749}
+  - component: {fileID: 867134751}
+  - component: {fileID: 867134750}
+  m_Layer: 0
+  m_Name: Square (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &867134749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867134748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 35.15, y: 0.9, z: 6.260224}
+  m_LocalScale: {x: 1, y: 63.599274, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1603831958}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &867134750
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867134748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &867134751
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867134748}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &876502782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,6 +5972,7 @@ GameObject:
   - component: {fileID: 914369560}
   - component: {fileID: 914369559}
   - component: {fileID: 914369558}
+  - component: {fileID: 914369562}
   m_Layer: 5
   m_Name: To School
   m_TagString: Untagged
@@ -5902,6 +6086,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 914369562}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &914369560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5940,6 +6136,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914369556}
   m_CullTransparentMesh: 1
+--- !u!114 &914369562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914369556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 3
+  doorNum: 3
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &917887178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,6 +6313,7 @@ MonoBehaviour:
   setTime: 1
   doorNum: 1
   timeChanged: 0
+  nightDoor: 0
 --- !u!1 &933566408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6190,6 +6403,7 @@ GameObject:
   - component: {fileID: 1084905442}
   - component: {fileID: 1084905441}
   - component: {fileID: 1084905440}
+  - component: {fileID: 1084905444}
   m_Layer: 5
   m_Name: To Work
   m_TagString: Untagged
@@ -6300,6 +6514,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1084905444}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1526395449}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Unpause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1084905442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6338,6 +6576,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084905438}
   m_CullTransparentMesh: 1
+--- !u!114 &1084905444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084905438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 3
+  doorNum: 3
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &1090388144
 GameObject:
   m_ObjectHideFlags: 0
@@ -6914,7 +7168,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1170797579
 SpriteRenderer:
@@ -7314,7 +7568,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: cf3f33563c111c94e9e38f5783012092, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7333,13 +7587,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326520155}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.41, y: 0.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4267178, y: 0.7359056, z: 9.893191}
+  m_LocalScale: {x: 0.94, y: 0.97, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1922710211}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329276080
 GameObject:
@@ -7751,8 +8005,9 @@ GameObject:
   - component: {fileID: 1473666717}
   - component: {fileID: 1473666716}
   - component: {fileID: 1473666715}
+  - component: {fileID: 1473666718}
   m_Layer: 5
-  m_Name: Door (1)
+  m_Name: ToGarage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7834,6 +8089,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1473666718}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1473666716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7872,6 +8139,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473666712}
   m_CullTransparentMesh: 1
+--- !u!114 &1473666718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473666712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 2
+  doorNum: 2
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &1507724747
 GameObject:
   m_ObjectHideFlags: 0
@@ -8833,6 +9116,7 @@ Transform:
   - {fileID: 602584513}
   - {fileID: 284963362}
   - {fileID: 810896363}
+  - {fileID: 867134749}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9016,7 +9300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1687575321
 SpriteRenderer:
@@ -9283,8 +9567,9 @@ GameObject:
   - component: {fileID: 1779986822}
   - component: {fileID: 1779986821}
   - component: {fileID: 1779986820}
+  - component: {fileID: 1779986823}
   m_Layer: 0
-  m_Name: Door (4)
+  m_Name: To Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9366,6 +9651,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1779986823}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1779986821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9404,6 +9701,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779986817}
   m_CullTransparentMesh: 1
+--- !u!114 &1779986823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779986817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 5
+  doorNum: 5
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &1875007709
 GameObject:
   m_ObjectHideFlags: 0
@@ -9598,7 +9911,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891022721
 GameObject:
@@ -9695,8 +10008,9 @@ GameObject:
   - component: {fileID: 1908564928}
   - component: {fileID: 1908564927}
   - component: {fileID: 1908564926}
+  - component: {fileID: 1908564929}
   m_Layer: 5
-  m_Name: Door (1)
+  m_Name: To Hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9778,6 +10092,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1908564929}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1908564927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9816,6 +10142,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908564923}
   m_CullTransparentMesh: 1
+--- !u!114 &1908564929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908564923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 6
+  doorNum: 6
+  timeChanged: 0
+  nightDoor: 1
 --- !u!1 &1922710210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9844,6 +10186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1326520157}
   - {fileID: 614777116}
   - {fileID: 12518002}
   - {fileID: 1687575320}
@@ -9885,7 +10228,7 @@ Transform:
   m_Children:
   - {fileID: 68510303}
   m_Father: {fileID: 1922710211}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1940095879
 SpriteRenderer:

@@ -9,6 +9,7 @@ public class Daytime : MonoBehaviour
     public float doorNum;
     private GameObject gameManager;
     public bool timeChanged;
+    public bool nightDoor;
 
     void Start()
     {
@@ -34,13 +35,28 @@ public class Daytime : MonoBehaviour
     public void ClockTimer()
     {
         // sets time in game to setTime when button is pressed
-        if(timeChanged == false)
+        if (!nightDoor)
+        {
+            if (timeChanged == false)
+            {
+                gameManager.GetComponent<GameManager>().time = setTime;
+                PlayerPrefs.SetInt("Time", gameManager.GetComponent<GameManager>().time);
+                timeChanged = true;
+                PlayerPrefs.SetInt("Door" + doorNum, 1);
+            }
+        }
+        else if(nightDoor && gameManager.GetComponent<GameManager>().time >= 4)
         {
             gameManager.GetComponent<GameManager>().time = setTime;
             PlayerPrefs.SetInt("Time", gameManager.GetComponent<GameManager>().time);
             timeChanged = true;
             PlayerPrefs.SetInt("Door" + doorNum, 1);
         }
+    }
+
+    public void WorkTime()
+    {
+        PlayerPrefs.SetInt("Time", setTime);
     }
 
 }
