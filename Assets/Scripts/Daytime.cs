@@ -54,4 +54,9 @@ public class Daytime : MonoBehaviour
         }
     }
 
+    public void WorkTime()
+    {
+        PlayerPrefs.SetInt("Time", setTime);
+    }
+
 }
