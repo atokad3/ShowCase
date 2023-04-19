@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
             }
             else if (!keys.GetComponent<Interactables>().taskIsDone)
             {
-                Debug.Log("Get Keys!!");
+                Debug.Log("Get Keys!!");  
             }
         }
         else if (time >= 4)
