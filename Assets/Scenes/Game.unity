@@ -3349,7 +3349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Eat '
+  m_text: Eat Breakfast
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
   m_sharedMaterial: {fileID: -2564430659280945806, guid: 963511e2d5d6c864ab8b1e9463fda54e, type: 2}
@@ -4448,7 +4448,7 @@ MonoBehaviour:
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
-  box: {fileID: 823139739}
+  box: {fileID: 1547538192}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
 --- !u!61 &729382316
@@ -9581,7 +9581,7 @@ MonoBehaviour:
   energyBar: {fileID: 800257007}
   maxEnergy: 100
   currentEnergy: 0
-  box: {fileID: 1547538192}
+  box: {fileID: 823139739}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
 --- !u!61 &1721341064
