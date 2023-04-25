@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour
     public Sprite check;
     public GameObject gm;
 
+
     // Start is called before the first frame update
     void Start()
     {
