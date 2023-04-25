@@ -6,6 +6,7 @@ public class Taco : MonoBehaviour
 {
     
     public GameObject Ingredient;
+    public GameObject introText;
 
 
     // Start is called before the first frame update
@@ -24,9 +25,11 @@ public class Taco : MonoBehaviour
     {
         Debug.Log("oioioiioioioiooioioiioiooiiooioi JOSKE");
 
-        Vector2 spawnLocation = new Vector2(Random.Range(-3.5f, 3.5f), Random.Range(-3.5f, 3.5f));
+        Vector2 spawnLocation = new Vector2(Random.Range(-2.6f, 2.6f), Random.Range(-2.3f, 2.3f));
 
         Instantiate(Ingredient, spawnLocation, Ingredient.transform.rotation);
+        
+        
     }
 
 }

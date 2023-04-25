@@ -32,6 +32,7 @@ public class ChangeScene : MonoBehaviour
     public void timeTaco()
     {        
         SceneManager.LoadScene("TimeTaco");
+        gm.GetComponent<GameManager>().isWorkDone = true;
     }
 
     public void SchoolAndWork()
