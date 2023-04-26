@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public Button bedroomDoor;
     public GameObject phone;
     public bool isWorkDone;
+    
+   
 
 
     // Start is called before the first frame update
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         carToWork.SetActive(false);
         keys = GameObject.Find("Keys");
         player = GameObject.Find("Player");
+
         if (day == 5 && PlayerPrefs.HasKey("Date"))
         {
             phone.SetActive(true);
@@ -236,9 +239,19 @@ public class GameManager : MonoBehaviour
             carInUse = carToSchool;
         }
         // if after sunday then gameover
-        if (day == 7)
+        if (day == 7 && !PlayerPrefs.HasKey("FinishGame?"))
         {
             SceneManager.LoadScene(sceneBuildIndex: 4);
         }
+        else if(day == 7 && PlayerPrefs.HasKey("FinishGame?"))
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 6);
+            
+        }
+
+
+
+       
+        // time taco mini game in menu only after you complete the game first time
     }
 }

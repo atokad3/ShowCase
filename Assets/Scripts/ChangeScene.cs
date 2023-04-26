@@ -30,10 +30,24 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex: 1);
     }
 
+    public void LeaveTimeTaco()
+    {
+        if(PlayerPrefs.GetInt("TacoToggle") == 1)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 1);
+            PlayerPrefs.SetInt("TacoToggle", 0);
+        }
+        else if (PlayerPrefs.GetInt("TacoToggle") == -1)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 0);
+        }
+    }
+
     public void timeTaco()
     {        
         SceneManager.LoadScene("TimeTaco");
         gm.GetComponent<GameManager>().isWorkDone = true;
+        PlayerPrefs.SetInt("TacoToggle", 1);
     }
 
     public void SchoolAndWork()

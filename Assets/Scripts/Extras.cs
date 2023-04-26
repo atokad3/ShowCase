@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Extras : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class Extras : MonoBehaviour
     public GameObject date;
     public GameObject lockedDate;
     public GameObject exitDate;
+    public int timeTacoToggle; // 0 = no time taco 4 u; 1 = time taco from game; -1 = time taco from extras button
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("TacoToggle", 0); // we are not in time taco so it doesn't exist
         if (PlayerPrefs.HasKey("FinishGame?"))
         {
             lockedDate.SetActive(false);
@@ -62,6 +65,13 @@ public class Extras : MonoBehaviour
             lockedDate.SetActive(false);
             exitDate.SetActive(true);
         }
+    }
+
+    public void TimeTacos()
+    {
+        SceneManager.LoadScene("TimeTaco");
+        PlayerPrefs.SetInt("TacoToggle", -1);
+        // use player prefs to check if we are entering time taco from the game or from the extras button
     }
 
     public void ExitDate()
