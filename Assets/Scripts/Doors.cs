@@ -24,12 +24,15 @@ public class Doors : MonoBehaviour
 
     public void Move()
     {
-        //moves player and camera to new room
-        player.transform.position = playerGoTo;
-        mainCamera.transform.position = cameraGoTo;
-        // changes which room gameobject is active
-        currentRoom.SetActive(false);
-        newRoom.SetActive(true);
+        if (!player.GetComponent<PlayerController>().phone.activeInHierarchy)
+        {
+            //moves player and camera to new room
+            player.transform.position = playerGoTo;
+            mainCamera.transform.position = cameraGoTo;
+            // changes which room gameobject is active
+            currentRoom.SetActive(false);
+            newRoom.SetActive(true);
+        }
     }
 
     public void Date()

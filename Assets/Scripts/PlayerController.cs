@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject PauseGame;
     public GameObject mainCamera;
+    public GameObject phone;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,18 @@ public class PlayerController : MonoBehaviour
     {
         if (!PauseGame.activeInHierarchy)
         { // if not pause, player move
-            PlayerMovement();
-            Checklist();
+            
+            if (!phone.activeInHierarchy)
+            {
+                PlayerMovement();
+                Checklist();
+            }
         }
         Pause();
-    }
 
+
+     
+    }
 
     private void Pause()
     { // pauses game

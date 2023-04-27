@@ -8389,6 +8389,7 @@ MonoBehaviour:
   anim: {fileID: 1526395450}
   PauseGame: {fileID: 1728801821}
   mainCamera: {fileID: 519420028}
+  phone: {fileID: 1977550632}
 --- !u!95 &1526395450
 Animator:
   serializedVersion: 4
