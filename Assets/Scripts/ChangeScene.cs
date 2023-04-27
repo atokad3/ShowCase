@@ -8,6 +8,7 @@ public class ChangeScene : MonoBehaviour
     public GameObject box;
     public Sprite check;
     public GameObject gm;
+    public bool done;
 
 
     // Start is called before the first frame update
@@ -87,7 +88,15 @@ public class ChangeScene : MonoBehaviour
     public void ResetDay()
     {
         // resets game and things to default
+        if (PlayerPrefs.HasKey("DONE"))
+        {
+            done = true;
+        }
         PlayerPrefs.DeleteAll();
+        if(done == true)
+        {
+            PlayerPrefs.SetString("DONE", "Yes");
+        }
         PlayerPrefs.SetInt("Bedroom", 1);
         PlayerPrefs.SetInt("Time", 0);
     }
@@ -95,5 +104,10 @@ public class ChangeScene : MonoBehaviour
     public void FinishGame()
     {
         PlayerPrefs.SetString("FinishGame?", "Yes");
+    }
+
+    public void Done()
+    {
+        PlayerPrefs.SetString("DONE", "Yes");
     }
 }

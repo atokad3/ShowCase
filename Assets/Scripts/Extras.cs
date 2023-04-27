@@ -19,7 +19,7 @@ public class Extras : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("TacoToggle", 0); // we are not in time taco so it doesn't exist
-        if (PlayerPrefs.HasKey("FinishGame?"))
+        if (PlayerPrefs.HasKey("DONE"))
         {
             lockedDate.SetActive(false);
         }
@@ -58,7 +58,7 @@ public class Extras : MonoBehaviour
 
     public void Date()
     {
-        if (PlayerPrefs.HasKey("FinishGame?"))
+        if (PlayerPrefs.HasKey("DONE"))
         {
             date.transform.localScale = new Vector3(1, 1, 1);
             date.transform.position = new Vector3(0, 0, 0);
