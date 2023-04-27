@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float maxEnergy;
     private float currentEnergy;
 
+
     // day & time
     public int day;
     public int time;
@@ -36,13 +37,17 @@ public class GameManager : MonoBehaviour
     public Button bedroomDoor;
     public GameObject phone;
     public bool isWorkDone;
-    
-   
+
+    public GameObject anim;
+    public bool taco;
+    public bool goingPlaces;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        goingPlaces = false;
+        taco = false;
         LoadDay();
         LoadRoom();
         HowMuchEnergy();
@@ -81,6 +86,14 @@ public class GameManager : MonoBehaviour
         if(day == 5 && isWorkDone)
         {
             PlayerPrefs.SetString("Date", "Yes");
+        }
+        if(taco == true)
+        {
+            StartCoroutine(TimeTaco());
+        }
+        else if(goingPlaces == true)
+        {
+            StartCoroutine(Waiting());
         }
     }
 
@@ -207,6 +220,19 @@ public class GameManager : MonoBehaviour
         {
             currentEnergy = maxEnergy;
         }
+    }
+
+    public IEnumerator Waiting()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(anim);
+        goingPlaces = false;
+    }
+    public IEnumerator TimeTaco()
+    {
+        yield return new WaitForSeconds(2);
+        taco = false;
+        SceneManager.LoadScene("TimeTaco");
     }
 
     public void LoadDay()
