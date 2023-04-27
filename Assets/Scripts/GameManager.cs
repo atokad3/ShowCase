@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float maxEnergy;
     private float currentEnergy;
 
+
     // day & time
     public int day;
     public int time;
@@ -37,10 +38,16 @@ public class GameManager : MonoBehaviour
     public GameObject phone;
     public bool isWorkDone;
 
+    public GameObject anim;
+    public bool taco;
+    public bool goingPlaces;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        goingPlaces = false;
+        taco = false;
         LoadDay();
         LoadRoom();
         HowMuchEnergy();
@@ -48,6 +55,7 @@ public class GameManager : MonoBehaviour
         carToWork.SetActive(false);
         keys = GameObject.Find("Keys");
         player = GameObject.Find("Player");
+
         if (day == 5 && PlayerPrefs.HasKey("Date"))
         {
             phone.SetActive(true);
@@ -78,6 +86,14 @@ public class GameManager : MonoBehaviour
         if(day == 5 && isWorkDone)
         {
             PlayerPrefs.SetString("Date", "Yes");
+        }
+        if(taco == true)
+        {
+            StartCoroutine(TimeTaco());
+        }
+        else if(goingPlaces == true)
+        {
+            StartCoroutine(Waiting());
         }
     }
 
@@ -206,6 +222,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public IEnumerator Waiting()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(anim);
+        goingPlaces = false;
+    }
+    public IEnumerator TimeTaco()
+    {
+        yield return new WaitForSeconds(2);
+        taco = false;
+        SceneManager.LoadScene("TimeTaco");
+    }
+
     public void LoadDay()
     {
         // load day of week
@@ -236,9 +265,19 @@ public class GameManager : MonoBehaviour
             carInUse = carToSchool;
         }
         // if after sunday then gameover
-        if (day == 7)
+        if (day == 7 && !PlayerPrefs.HasKey("FinishGame?"))
         {
             SceneManager.LoadScene(sceneBuildIndex: 4);
         }
+        else if(day == 7 && PlayerPrefs.HasKey("FinishGame?"))
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 6);
+            
+        }
+
+
+
+       
+        // time taco mini game in menu only after you complete the game first time
     }
 }

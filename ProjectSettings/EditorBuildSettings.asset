@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TimeTaco.unity
     guid: 67b21d9e6c88dfd49b48d618d4580308
+  - enabled: 1
+    path: Assets/Scenes/BetterWin.unity
+    guid: 813ddf41adaf7a84a98b74b3521f6c05
   m_configObjects: {}

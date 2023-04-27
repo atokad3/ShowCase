@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour
     public Sprite check;
     public GameObject gm;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class ChangeScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void gameScene()
@@ -29,14 +30,30 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex: 1);
     }
 
+    public void LeaveTimeTaco()
+    {
+        if(PlayerPrefs.GetInt("TacoToggle") == 1)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 1);
+            PlayerPrefs.SetInt("TacoToggle", 0);
+        }
+        else if (PlayerPrefs.GetInt("TacoToggle") == -1)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 0);
+        }
+    }
+
     public void timeTaco()
-    {        
-        SceneManager.LoadScene("TimeTaco");
+    {
+        gm.GetComponent<GameManager>().taco = true;
         gm.GetComponent<GameManager>().isWorkDone = true;
+        PlayerPrefs.SetInt("TacoToggle", 1);
     }
 
     public void SchoolAndWork()
     {
+        gm.GetComponent<GameManager>().goingPlaces = true;
+        gm.GetComponent<GameManager>().anim.GetComponent<Animator>().SetBool("Drive", true);
         box.GetComponent<SpriteRenderer>().sprite = check;
         PlayerPrefs.SetString("task10", "Done");
         gm.GetComponent<GameManager>().LoseEnergy(10);
