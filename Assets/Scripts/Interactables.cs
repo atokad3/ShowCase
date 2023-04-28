@@ -11,9 +11,9 @@ public class Interactables : MonoBehaviour
 
     public int time;
     public int energyCost;
-    public EnergyBar energyBar;
-    public float maxEnergy;
-    public float currentEnergy;
+    private EnergyBar energyBar;
+    private float maxEnergy;
+    private float currentEnergy;
 
     private GameObject player;
     public GameObject box;
@@ -22,6 +22,7 @@ public class Interactables : MonoBehaviour
 
     void Start()
     {
+        energyBar = GameObject.Find("EnergyBar").GetComponent<EnergyBar>();
         taskIsDone = false;
         maxEnergy = PlayerPrefs.GetInt("MaxEnergy");
         currentEnergy = maxEnergy;

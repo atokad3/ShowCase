@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BetterWin.unity
     guid: 813ddf41adaf7a84a98b74b3521f6c05
+  - enabled: 1
+    path: Assets/Scenes/CINNAMON.unity
+    guid: 576c13e703c1ecf42bc42a60f5730e4f
   m_configObjects: {}
