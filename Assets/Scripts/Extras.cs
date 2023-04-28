@@ -13,6 +13,7 @@ public class Extras : MonoBehaviour
     public GameObject date;
     public GameObject lockedDate;
     public GameObject exitDate;
+    public GameObject taco;
     public int timeTacoToggle; // 0 = no time taco 4 u; 1 = time taco from game; -1 = time taco from extras button
 
     // Start is called before the first frame update
@@ -64,6 +65,7 @@ public class Extras : MonoBehaviour
             date.transform.position = new Vector3(0, 0, 0);
             lockedDate.SetActive(false);
             exitDate.SetActive(true);
+            taco.SetActive(false);
         }
     }
 
@@ -79,5 +81,6 @@ public class Extras : MonoBehaviour
         date.transform.localScale = new Vector3(0.25f, 0.25f, 1);
         date.transform.position = new Vector3(4, 0, 0);
         exitDate.SetActive(false);
+        taco.SetActive(true);
     }
 }

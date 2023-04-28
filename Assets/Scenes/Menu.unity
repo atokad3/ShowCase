@@ -2495,6 +2495,8 @@ MonoBehaviour:
   date: {fileID: 964359556}
   lockedDate: {fileID: 224115218}
   exitDate: {fileID: 321771970}
+  taco: {fileID: 711743966}
+  timeTacoToggle: 0
 --- !u!1 &1392349470
 GameObject:
   m_ObjectHideFlags: 0
