@@ -9,14 +9,16 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 3;
     public GameObject checklist;
-    public Animator anim;
-    public GameObject PauseGame;
-    public GameObject mainCamera;
     public GameObject phone;
+    public GameObject PauseGame;
+    private GameObject mainCamera;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        mainCamera = GameObject.Find("Main Camera");
         if (PlayerPrefs.HasKey("StopX"))
         { // if has save, load
             LoadCharacter();

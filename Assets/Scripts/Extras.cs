@@ -7,18 +7,17 @@ using UnityEngine.SceneManagement;
 public class Extras : MonoBehaviour
 {
 
-    public TextMeshProUGUI startButton;
+    private TextMeshProUGUI startButton;
     public GameObject menu;
     public GameObject extra;
     public GameObject date;
     public GameObject lockedDate;
     public GameObject exitDate;
     public GameObject taco;
-    public int timeTacoToggle; // 0 = no time taco 4 u; 1 = time taco from game; -1 = time taco from extras button
-
     // Start is called before the first frame update
     void Start()
     {
+        startButton = GameObject.Find("startText").GetComponent<TextMeshProUGUI>();
         PlayerPrefs.SetInt("TacoToggle", 0); // we are not in time taco so it doesn't exist
         if (PlayerPrefs.HasKey("FinishGame?"))
         {
