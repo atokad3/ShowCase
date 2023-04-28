@@ -797,6 +797,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1689485733}
   newRoom: {fileID: 1685388868}
   doorButton: {fileID: 85950359}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!1 &141634692
 GameObject:
@@ -1872,6 +1873,7 @@ MonoBehaviour:
   currentRoom: {fileID: 583233768}
   newRoom: {fileID: 1884984521}
   doorButton: {fileID: 1908564923}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &268767016
 BoxCollider2D:
@@ -2061,6 +2063,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1688611002}
   newRoom: {fileID: 1884984521}
   doorButton: {fileID: 1090388144}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &285834321
 BoxCollider2D:
@@ -3124,7 +3127,7 @@ MonoBehaviour:
   bedroomDoor: {fileID: 1090388147}
   phone: {fileID: 1977550632}
   isWorkDone: 0
-  datePjs: {fileID: 0}
+  datePjs: {fileID: 21300000, guid: f55b3350f62afc34ab9230ffa62149bc, type: 3}
 --- !u!1 &540270906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,6 +3509,7 @@ MonoBehaviour:
   currentRoom: {fileID: 583233768}
   newRoom: {fileID: 1575481792}
   doorButton: {fileID: 917887178}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &597058337
 BoxCollider2D:
@@ -3824,6 +3828,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1575481792}
   newRoom: {fileID: 1575481792}
   doorButton: {fileID: 371480534}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 764988289}
 --- !u!1 &671414502
 GameObject:
@@ -3983,6 +3988,7 @@ MonoBehaviour:
   currentRoom: {fileID: 816414460}
   newRoom: {fileID: 1685388868}
   doorButton: {fileID: 726980941}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &726980944
 MonoBehaviour:
@@ -4963,6 +4969,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1971050427}
   newRoom: {fileID: 1884984521}
   doorButton: {fileID: 845795228}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &845795231
 MonoBehaviour:
@@ -5253,6 +5260,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1575481792}
   newRoom: {fileID: 1685388868}
   doorButton: {fileID: 1473666712}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &876502785
 BoxCollider2D:
@@ -5692,6 +5700,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1685388868}
   newRoom: {fileID: 816414460}
   doorButton: {fileID: 914369556}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &914369559
 MonoBehaviour:
@@ -7651,6 +7660,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1884984521}
   newRoom: {fileID: 583233768}
   doorButton: {fileID: 2093862764}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &1460017474
 BoxCollider2D:
@@ -9416,6 +9426,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1685388868}
   newRoom: {fileID: 1689485733}
   doorButton: {fileID: 1756215155}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 1977550632}
 --- !u!114 &1756215158
 MonoBehaviour:
@@ -9970,6 +9981,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1884984521}
   newRoom: {fileID: 1971050427}
   doorButton: {fileID: 1160815661}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &1875007712
 BoxCollider2D:
@@ -11148,6 +11160,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1575481792}
   newRoom: {fileID: 583233768}
   doorButton: {fileID: 1779986817}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &2048464535
 BoxCollider2D:
@@ -11232,6 +11245,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1685388868}
   newRoom: {fileID: 1575481792}
   doorButton: {fileID: 2055319414}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &2055319417
 MonoBehaviour:
@@ -11601,6 +11615,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1685388868}
   newRoom: {fileID: 1689485733}
   doorButton: {fileID: 2125461522}
+  dateBg: {fileID: 1162983277}
   openDoor: {fileID: 1977550632}
 --- !u!114 &2125461525
 MonoBehaviour:
@@ -11966,6 +11981,7 @@ MonoBehaviour:
   currentRoom: {fileID: 1884984521}
   newRoom: {fileID: 1688611002}
   doorButton: {fileID: 541971030}
+  dateBg: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &2145142955
 BoxCollider2D:

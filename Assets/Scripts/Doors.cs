@@ -11,6 +11,7 @@ public class Doors : MonoBehaviour
     public GameObject currentRoom;
     public GameObject newRoom;
     public GameObject doorButton;
+    public GameObject dateBg;
 
 
     // for closet in living room, if other door then ignore
@@ -40,6 +41,10 @@ public class Doors : MonoBehaviour
         }
         else if(PlayerPrefs.GetFloat("CurrentEnergy") >= 10)
         {
+            if(player.GetComponent<Animator>().GetBool("gotDressed") == false)
+            {
+                dateBg.GetComponent<SpriteRenderer>().sprite = mainCamera.GetComponent<GameManager>().datePjs;
+            }
             Move();
             mainCamera.GetComponent<GameManager>().LoseEnergy(10);
             openDoor.SetActive(false);
