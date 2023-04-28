@@ -1468,7 +1468,7 @@ RectTransform:
   m_GameObject: {fileID: 205420284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.1000003}
-  m_LocalScale: {x: 0.00082216825, y: 0.0020769984, z: 0.009259259}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1510675045}
@@ -1477,7 +1477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.070147395, y: 0.04}
+  m_AnchoredPosition: {x: 0.070147395, y: 1.05}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205420286
@@ -1495,6 +1495,7 @@ MonoBehaviour:
   box: {fileID: 0}
   check: {fileID: 0}
   gm: {fileID: 0}
+  done: 0
 --- !u!114 &205420287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3105,40 +3106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBar: {fileID: 800257007}
-  day: 0
   time: 0
-  dayText: {fileID: 1591783522}
-  timeText: {fileID: 2132689128}
-  clock: {fileID: 2039702105}
-  weekdays:
-  - Monday
-  - Tuesday
-  - Wednesday
-  - Thursday
-  - Friday
-  - Saturday
-  - Sunday
-  - GameOver
-  displayTimes:
-  - 7:00
-  - 7:15
-  - 7:45
-  - 8:00
-  - 2:30
-  - 2:45
-  - 6:30
-  - 7:30
-  - 10:00
-  timeRot:
-  - -45
-  - -35
-  - -20
-  - -10
-  - 10
-  - 15
-  - 40
-  - 50
-  - 70
   rooms:
   - {fileID: 1971050427}
   - {fileID: 1884984521}
@@ -3156,6 +3124,7 @@ MonoBehaviour:
   bedroomDoor: {fileID: 1090388147}
   phone: {fileID: 1977550632}
   isWorkDone: 0
+  datePjs: {fileID: 0}
 --- !u!1 &540270906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,9 +3876,6 @@ MonoBehaviour:
   taskNum: 0
   time: 0
   energyCost: 0
-  energyBar: {fileID: 0}
-  maxEnergy: 0
-  currentEnergy: 0
   box: {fileID: 0}
   check: {fileID: 0}
   closet: {fileID: 0}
@@ -4175,9 +4141,6 @@ MonoBehaviour:
   taskNum: 3
   time: 0
   energyCost: 15
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 1547538192}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
@@ -4913,9 +4876,6 @@ MonoBehaviour:
   taskNum: 6
   time: 0
   energyCost: 5
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 460221527}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
@@ -6161,6 +6121,7 @@ MonoBehaviour:
   box: {fileID: 1232550841}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   gm: {fileID: 519420028}
+  done: 0
 --- !u!114 &1084905441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6721,7 +6682,7 @@ RectTransform:
   m_GameObject: {fileID: 1166097992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.1000003}
-  m_LocalScale: {x: 0.00082216825, y: 0.0020769984, z: 0.009259259}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 44765744}
@@ -6748,6 +6709,7 @@ MonoBehaviour:
   box: {fileID: 0}
   check: {fileID: 0}
   gm: {fileID: 0}
+  done: 0
 --- !u!114 &1166097995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6931,9 +6893,6 @@ MonoBehaviour:
   taskNum: 4
   time: 0
   energyCost: 5
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 1950407141}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
@@ -7072,9 +7031,6 @@ MonoBehaviour:
   taskNum: 7
   time: 0
   energyCost: 10
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 1969042106}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
@@ -7471,9 +7427,6 @@ MonoBehaviour:
   taskNum: 1
   time: 0
   energyCost: 10
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 745000413}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
@@ -8386,9 +8339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 9
   checklist: {fileID: 204512586}
-  anim: {fileID: 1526395450}
   PauseGame: {fileID: 1728801821}
-  mainCamera: {fileID: 519420028}
+  phone: {fileID: 0}
 --- !u!95 &1526395450
 Animator:
   serializedVersion: 4
@@ -8675,9 +8627,6 @@ MonoBehaviour:
   taskNum: 9
   time: 0
   energyCost: 10
-  energyBar: {fileID: 800257007}
-  maxEnergy: 0
-  currentEnergy: 0
   box: {fileID: 2025459184}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 764988289}
@@ -8759,7 +8708,7 @@ GameObject:
   - component: {fileID: 1591783521}
   - component: {fileID: 1591783522}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Days
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9257,9 +9206,6 @@ MonoBehaviour:
   taskNum: 2
   time: 0
   energyCost: 20
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 823139739}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 0}
@@ -9315,13 +9261,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1728801823}
   - component: {fileID: 1728801822}
+  - component: {fileID: 1728801824}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1728801822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9362,9 +9309,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.11792451, b: 0.9544218, a: 0.31764707}
+  m_SortingOrder: 11
+  m_Sprite: {fileID: -1297955198, guid: bb278bc21430e5844ad1c6e4717aff76, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9382,8 +9329,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728801821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -170.64, y: -60.479996, z: 118.80003}
-  m_LocalScale: {x: 2432.592, y: 1444.3921, z: 108}
+  m_LocalPosition: {x: -3.78, y: -2.39, z: 118.80003}
+  m_LocalScale: {x: 100.303, y: 100.079994, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1166097993}
@@ -9391,6 +9338,26 @@ Transform:
   m_Father: {fileID: 773885592}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1728801824
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728801821}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf0acec01854ace49adaff703a68fbf7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1756215155
 GameObject:
   m_ObjectHideFlags: 0
@@ -10087,9 +10054,6 @@ MonoBehaviour:
   taskNum: 5
   time: 0
   energyCost: 10
-  energyBar: {fileID: 800257007}
-  maxEnergy: 100
-  currentEnergy: 0
   box: {fileID: 202042529}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 764988289}
@@ -10987,9 +10951,6 @@ MonoBehaviour:
   taskNum: 8
   time: 0
   energyCost: 5
-  energyBar: {fileID: 800257007}
-  maxEnergy: 0
-  currentEnergy: 0
   box: {fileID: 306428370}
   check: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
   closet: {fileID: 764988289}
@@ -11635,7 +11596,7 @@ GameObject:
   - component: {fileID: 2132689129}
   - component: {fileID: 2132689128}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Times
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
