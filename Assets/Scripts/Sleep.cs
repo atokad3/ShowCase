@@ -8,21 +8,17 @@ public class Sleep : Interactables
     public List<GameObject> tasks;
     public List<GameObject> doors;
     private GameObject gameManager;
+    public bool dayIsDone;
 
     void Start()
     {
         gameManager = GameObject.Find("Main Camera");
+        dayIsDone = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
-        {
-            // resets player & camera pos and goes to next day
-            ResetStuff();
-            gameManager.GetComponent<GameManager>().ChangeDay();
-            SceneManager.LoadScene("Game");
-        }
+        DayEnds();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,6 +50,22 @@ public class Sleep : Interactables
         foreach(GameObject door in doors)
         {
             door.GetComponent<Daytime>().ResetBool();
+        }
+    }
+
+    private void DayEnds()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
+        {
+            gameManager.GetComponent<Checks>().EndOfDays();
+            dayIsDone = true;
+        }
+        if (dayIsDone && Input.GetMouseButtonDown(0))
+        {
+            // resets player & camera pos and goes to next day
+            ResetStuff();
+            gameManager.GetComponent<GameManager>().ChangeDay();
+            SceneManager.LoadScene("Game");
         }
     }
 }

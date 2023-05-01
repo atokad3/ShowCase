@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 
     public float speed = 3;
     public GameObject checklist;
-    public Animator anim;
     public GameObject PauseGame;
-    public GameObject mainCamera;
+    public GameObject phone;
+    private GameObject mainCamera;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        mainCamera = GameObject.Find("Main Camera");
         if (PlayerPrefs.HasKey("StopX"))
         { // if has save, load
             LoadCharacter();
@@ -30,6 +34,13 @@ public class PlayerController : MonoBehaviour
             Checklist();
         }
         Pause();
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Unpause();
+            SceneManager.LoadScene("CINNAMON");
+        }
+
+     
     }
 
 

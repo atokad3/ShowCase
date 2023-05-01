@@ -16,12 +16,16 @@ public class GameManager : MonoBehaviour
     // day & time
     public int day;
     public int time;
-    public TextMeshProUGUI dayText;
-    public TextMeshProUGUI timeText;
-    public GameObject clock;
-    public List<string> weekdays;
-    public List<string> displayTimes;
-    public List<float> timeRot;
+    private TextMeshProUGUI dayText;
+    private TextMeshProUGUI timeText;
+    public TextMeshProUGUI schoolWork;
+    public TextMeshProUGUI lunchDate;
+    public TextMeshProUGUI endSchoolWork;
+    public TextMeshProUGUI endLunchDate;
+    private GameObject clock;
+    private string[] weekdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    private string[] displayTimes = {"7:00", "7:15", "7:45", "8:00", "2:30", "2:45", "6:30", "7:30", "10:00" };
+    private float[] timeRot = {-45, -35, -20, -10, 10, 15, 40, 50, 70 };
 
     public List<GameObject> rooms;
     public GameObject morning;
@@ -36,21 +40,15 @@ public class GameManager : MonoBehaviour
     public Button bedroomDoor;
     public GameObject phone;
     public bool isWorkDone;
-    
+    public Sprite datePjs;
+    public bool isSchoolDone;
    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadDay();
-        LoadRoom();
-        HowMuchEnergy();
-        carToSchool.SetActive(false);
-        carToWork.SetActive(false);
-        keys = GameObject.Find("Keys");
-        player = GameObject.Find("Player");
-
+        SetUp();
         if (day == 5 && PlayerPrefs.HasKey("Date"))
         {
             phone.SetActive(true);
@@ -63,9 +61,12 @@ public class GameManager : MonoBehaviour
     {
        TimeTasks();
        // changes clock to match day & time
+       if(day <= 6)
+        {
        clock.transform.eulerAngles = new Vector3(0, 0, timeRot[time]);
        dayText.text = weekdays[day];
        timeText.text = displayTimes[time];
+        }
        // checks which room player is in and saves if room is active or not
        foreach (GameObject room in rooms)
         {
@@ -127,6 +128,20 @@ public class GameManager : MonoBehaviour
         {
             bedroomDoor.interactable = true;
         }
+    }
+
+    private void SetUp()
+    {
+        LoadDay();
+        LoadRoom();
+        HowMuchEnergy();
+        carToSchool.SetActive(false);
+        carToWork.SetActive(false);
+        keys = GameObject.Find("Keys");
+        player = GameObject.Find("Player");
+        clock = GameObject.Find("clockpt2");
+        dayText = GameObject.Find("Days").GetComponent<TextMeshProUGUI>();
+        timeText = GameObject.Find("Times").GetComponent<TextMeshProUGUI>();
     }
 
     private void LoadRoom()
@@ -233,6 +248,10 @@ public class GameManager : MonoBehaviour
         if(day >= 5)
         {
             carInUse = carToWork;
+            schoolWork.text = "Go to Work";
+            lunchDate.text = "??";
+            endSchoolWork.text = "Go to Work";
+            endLunchDate.text = "??";
         }
         else
         {
@@ -248,7 +267,6 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(sceneBuildIndex: 6);
             
         }
-
 
 
        
