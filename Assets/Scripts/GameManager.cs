@@ -14,10 +14,14 @@ public class GameManager : MonoBehaviour
     private float currentEnergy;
 
     // day & time
-    private int day;
+    public int day;
     public int time;
     private TextMeshProUGUI dayText;
     private TextMeshProUGUI timeText;
+    public TextMeshProUGUI schoolWork;
+    public TextMeshProUGUI lunchDate;
+    public TextMeshProUGUI endSchoolWork;
+    public TextMeshProUGUI endLunchDate;
     private GameObject clock;
     private string[] weekdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     private string[] displayTimes = {"7:00", "7:15", "7:45", "8:00", "2:30", "2:45", "6:30", "7:30", "10:00" };
@@ -244,6 +248,10 @@ public class GameManager : MonoBehaviour
         if(day >= 5)
         {
             carInUse = carToWork;
+            schoolWork.text = "Go to Work";
+            lunchDate.text = "??";
+            endSchoolWork.text = "Go to Work";
+            endLunchDate.text = "??";
         }
         else
         {
@@ -259,7 +267,6 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(sceneBuildIndex: 6);
             
         }
-
 
 
        

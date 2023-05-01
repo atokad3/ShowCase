@@ -12,6 +12,7 @@ public class Doors : MonoBehaviour
     public GameObject newRoom;
     public GameObject doorButton;
     public GameObject dateBg;
+    public GameObject lunchDate;
 
 
     // for closet in living room, if other door then ignore
@@ -48,6 +49,7 @@ public class Doors : MonoBehaviour
             Move();
             mainCamera.GetComponent<GameManager>().LoseEnergy(10);
             openDoor.SetActive(false);
+            lunchDate.GetComponent<Interactables>().taskIsDone = true;
         }
     }
 

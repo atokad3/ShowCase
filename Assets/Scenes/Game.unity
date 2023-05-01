@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 85950362}
   - component: {fileID: 85950361}
   - component: {fileID: 85950364}
+  - component: {fileID: 85950365}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -742,6 +743,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 85950365}
+        m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
+        m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &85950362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +811,24 @@ MonoBehaviour:
   newRoom: {fileID: 1685388868}
   doorButton: {fileID: 85950359}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
+--- !u!114 &85950365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85950359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442276ee5c185984d9383976c23f7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setTime: 5
+  doorNum: 9
+  timeChanged: 0
+  nightDoor: 0
 --- !u!1 &141634692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &204512587
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1874,6 +1904,7 @@ MonoBehaviour:
   newRoom: {fileID: 1884984521}
   doorButton: {fileID: 1908564923}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &268767016
 BoxCollider2D:
@@ -2064,6 +2095,7 @@ MonoBehaviour:
   newRoom: {fileID: 1884984521}
   doorButton: {fileID: 1090388144}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &285834321
 BoxCollider2D:
@@ -3190,6 +3222,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3372,7 +3405,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBar: {fileID: 800257007}
+  day: 0
   time: 0
+  schoolWork: {fileID: 176569898}
+  lunchDate: {fileID: 231962496}
+  endSchoolWork: {fileID: 1227819247}
+  endLunchDate: {fileID: 618714049}
   rooms:
   - {fileID: 1971050427}
   - {fileID: 1884984521}
@@ -3392,6 +3430,44 @@ MonoBehaviour:
   isWorkDone: 0
   datePjs: {fileID: 21300000, guid: f55b3350f62afc34ab9230ffa62149bc, type: 3}
   isSchoolDone: 0
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9eec5b4bbdca7f46915bef5d3e72720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checks:
+  - {fileID: 745000413}
+  - {fileID: 1547538192}
+  - {fileID: 1950407141}
+  - {fileID: 306428370}
+  - {fileID: 1232550841}
+  - {fileID: 2025459184}
+  - {fileID: 202042529}
+  - {fileID: 823139739}
+  - {fileID: 460221527}
+  - {fileID: 1969042106}
+  box: {fileID: 21300000, guid: cfc4e0f8a23a43240a319f30aaa4a3c5, type: 3}
+  good: {fileID: 21300000, guid: 9b0860a91e48fc04b8da3b6ba6548855, type: 3}
+  bad: {fileID: 21300000, guid: 84fabcbd9d757f640940a2e2d9a3a289, type: 3}
+  dayEndBox:
+  - {fileID: 1965598125}
+  - {fileID: 1799369884}
+  - {fileID: 889889553}
+  - {fileID: 2134207678}
+  - {fileID: 635920931}
+  - {fileID: 889015593}
+  - {fileID: 954090860}
+  - {fileID: 853346995}
+  - {fileID: 1096423991}
+  - {fileID: 1789710462}
+  dayEnd: {fileID: 459652956}
 --- !u!1 &540270906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,6 +3891,7 @@ MonoBehaviour:
   newRoom: {fileID: 1575481792}
   doorButton: {fileID: 917887178}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &597058337
 BoxCollider2D:
@@ -4353,6 +4430,7 @@ MonoBehaviour:
   newRoom: {fileID: 1575481792}
   doorButton: {fileID: 371480534}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 764988289}
 --- !u!1 &671414502
 GameObject:
@@ -4429,17 +4507,7 @@ MonoBehaviour:
   - {fileID: 1473666712}
   - {fileID: 726980941}
   - {fileID: 1779986817}
-  dayEndBox:
-  - {fileID: 1965598125}
-  - {fileID: 853346995}
-  - {fileID: 1799369884}
-  - {fileID: 889889553}
-  - {fileID: 954090860}
-  - {fileID: 1096423991}
-  - {fileID: 1789710462}
-  - {fileID: 2134207678}
-  - {fileID: 889015593}
-  dayEnd: {fileID: 459652956}
+  - {fileID: 85950359}
   dayIsDone: 0
 --- !u!61 &671414505
 BoxCollider2D:
@@ -4615,6 +4683,7 @@ MonoBehaviour:
   newRoom: {fileID: 1685388868}
   doorButton: {fileID: 726980941}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &726980944
 MonoBehaviour:
@@ -5599,6 +5668,7 @@ MonoBehaviour:
   newRoom: {fileID: 1884984521}
   doorButton: {fileID: 845795228}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &845795231
 MonoBehaviour:
@@ -5974,6 +6044,7 @@ MonoBehaviour:
   newRoom: {fileID: 1685388868}
   doorButton: {fileID: 1473666712}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &876502785
 BoxCollider2D:
@@ -6717,6 +6788,7 @@ MonoBehaviour:
   newRoom: {fileID: 816414460}
   doorButton: {fileID: 914369556}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &914369559
 MonoBehaviour:
@@ -9483,6 +9555,7 @@ MonoBehaviour:
   newRoom: {fileID: 583233768}
   doorButton: {fileID: 2093862764}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &1460017474
 BoxCollider2D:
@@ -11521,6 +11594,7 @@ MonoBehaviour:
   newRoom: {fileID: 1689485733}
   doorButton: {fileID: 1756215155}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 1977550632}
 --- !u!114 &1756215158
 MonoBehaviour:
@@ -12244,6 +12318,7 @@ MonoBehaviour:
   newRoom: {fileID: 1971050427}
   doorButton: {fileID: 1160815661}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &1875007712
 BoxCollider2D:
@@ -13644,6 +13719,7 @@ MonoBehaviour:
   newRoom: {fileID: 583233768}
   doorButton: {fileID: 1779986817}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &2048464535
 BoxCollider2D:
@@ -13729,6 +13805,7 @@ MonoBehaviour:
   newRoom: {fileID: 1575481792}
   doorButton: {fileID: 2055319414}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!114 &2055319417
 MonoBehaviour:
@@ -14099,6 +14176,7 @@ MonoBehaviour:
   newRoom: {fileID: 1689485733}
   doorButton: {fileID: 2125461522}
   dateBg: {fileID: 1162983277}
+  lunchDate: {fileID: 1554705880}
   openDoor: {fileID: 1977550632}
 --- !u!114 &2125461525
 MonoBehaviour:
@@ -14549,6 +14627,7 @@ MonoBehaviour:
   newRoom: {fileID: 1688611002}
   doorButton: {fileID: 541971030}
   dateBg: {fileID: 0}
+  lunchDate: {fileID: 0}
   openDoor: {fileID: 0}
 --- !u!61 &2145142955
 BoxCollider2D:

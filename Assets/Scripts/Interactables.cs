@@ -65,21 +65,6 @@ public class Interactables : MonoBehaviour
             glow.GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 1);
             StartCoroutine(NotEnoughOff());
         }
-        if(tag == "Morning" && !taskIsDone)
-        {
-            if(PlayerPrefs.GetInt("Time") >= 3 && name != "Lunch")
-            {
-                box.GetComponent<SpriteRenderer>().sprite = bad;
-            }
-            else if(PlayerPrefs.GetInt("Time") >= 4 && name == "Lunch")
-            {
-                box.GetComponent<SpriteRenderer>().sprite = bad;
-            }
-        }
-        else if(tag == "Night" && PlayerPrefs.GetInt("Time") >= 8 && !taskIsDone)
-        {
-            box.GetComponent<SpriteRenderer>().sprite = bad;
-        }
     }
 
     private void LoadTask()

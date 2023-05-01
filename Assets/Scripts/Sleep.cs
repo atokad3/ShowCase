@@ -7,17 +7,13 @@ public class Sleep : Interactables
 {
     public List<GameObject> tasks;
     public List<GameObject> doors;
-    public List<GameObject> dayEndBox;
-    public GameObject dayEnd;
     private GameObject gameManager;
-    private int number;
     public bool dayIsDone;
 
     void Start()
     {
         gameManager = GameObject.Find("Main Camera");
         dayIsDone = false;
-        number = 0;
     }
 
     void Update()
@@ -61,28 +57,8 @@ public class Sleep : Interactables
     {
         if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
         {
-            foreach (GameObject endTask in tasks)
-            {
-                    if (endTask.GetComponent<Interactables>().taskIsDone)
-                    {
-                        dayEndBox[number].GetComponent<SpriteRenderer>().sprite = check;
-                    }
-                    else if (!endTask.GetComponent<Interactables>().taskIsDone)
-                    {
-                        dayEndBox[number].GetComponent<SpriteRenderer>().sprite = bad;
-                    }
-                number++;
-            }
-            if (gameManager.GetComponent<GameManager>().isSchoolDone)
-            {
-                box.GetComponent<SpriteRenderer>().sprite = check;
-            }
-            else if (!gameManager.GetComponent<GameManager>().isSchoolDone)
-            {
-                box.GetComponent<SpriteRenderer>().sprite = bad;
-            }
+            gameManager.GetComponent<Checks>().EndOfDays();
             dayIsDone = true;
-            dayEnd.SetActive(true);
         }
         if (dayIsDone && Input.GetMouseButtonDown(0))
         {
