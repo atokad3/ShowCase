@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Vacuum
   - LateDayTask
+  - Morning
+  - Night
   layers:
   - Default
   - TransparentFX

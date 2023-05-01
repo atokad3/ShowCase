@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject phone;
     public bool isWorkDone;
     public Sprite datePjs;
+    public bool isSchoolDone;
    
 
 

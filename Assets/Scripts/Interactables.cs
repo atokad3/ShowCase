@@ -18,6 +18,7 @@ public class Interactables : MonoBehaviour
     private GameObject player;
     public GameObject box;
     public Sprite check;
+    public Sprite bad;
     public GameObject closet;
 
     void Start()
@@ -63,6 +64,21 @@ public class Interactables : MonoBehaviour
         { // if you have less eneregy than what the task takes, cant do task
             glow.GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 1);
             StartCoroutine(NotEnoughOff());
+        }
+        if(tag == "Morning" && !taskIsDone)
+        {
+            if(PlayerPrefs.GetInt("Time") >= 3 && name != "Lunch")
+            {
+                box.GetComponent<SpriteRenderer>().sprite = bad;
+            }
+            else if(PlayerPrefs.GetInt("Time") >= 4 && name == "Lunch")
+            {
+                box.GetComponent<SpriteRenderer>().sprite = bad;
+            }
+        }
+        else if(tag == "Night" && PlayerPrefs.GetInt("Time") >= 8 && !taskIsDone)
+        {
+            box.GetComponent<SpriteRenderer>().sprite = bad;
         }
     }
 

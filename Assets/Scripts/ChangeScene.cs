@@ -54,6 +54,7 @@ public class ChangeScene : MonoBehaviour
     public void SchoolAndWork()
     {
         box.GetComponent<SpriteRenderer>().sprite = check;
+        gm.GetComponent<GameManager>().isSchoolDone = true;
         PlayerPrefs.SetString("task10", "Done");
         gm.GetComponent<GameManager>().LoseEnergy(10);
     }

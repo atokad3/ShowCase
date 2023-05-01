@@ -7,22 +7,22 @@ public class Sleep : Interactables
 {
     public List<GameObject> tasks;
     public List<GameObject> doors;
+    public List<GameObject> dayEndBox;
+    public GameObject dayEnd;
     private GameObject gameManager;
+    private int number;
+    public bool dayIsDone;
 
     void Start()
     {
         gameManager = GameObject.Find("Main Camera");
+        dayIsDone = false;
+        number = 0;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
-        {
-            // resets player & camera pos and goes to next day
-            ResetStuff();
-            gameManager.GetComponent<GameManager>().ChangeDay();
-            SceneManager.LoadScene("Game");
-        }
+        DayEnds();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,6 +54,42 @@ public class Sleep : Interactables
         foreach(GameObject door in doors)
         {
             door.GetComponent<Daytime>().ResetBool();
+        }
+    }
+
+    private void DayEnds()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone)
+        {
+            foreach (GameObject endTask in tasks)
+            {
+                    if (endTask.GetComponent<Interactables>().taskIsDone)
+                    {
+                        dayEndBox[number].GetComponent<SpriteRenderer>().sprite = check;
+                    }
+                    else if (!endTask.GetComponent<Interactables>().taskIsDone)
+                    {
+                        dayEndBox[number].GetComponent<SpriteRenderer>().sprite = bad;
+                    }
+                number++;
+            }
+            if (gameManager.GetComponent<GameManager>().isSchoolDone)
+            {
+                box.GetComponent<SpriteRenderer>().sprite = check;
+            }
+            else if (!gameManager.GetComponent<GameManager>().isSchoolDone)
+            {
+                box.GetComponent<SpriteRenderer>().sprite = bad;
+            }
+            dayIsDone = true;
+            dayEnd.SetActive(true);
+        }
+        if (dayIsDone && Input.GetMouseButtonDown(0))
+        {
+            // resets player & camera pos and goes to next day
+            ResetStuff();
+            gameManager.GetComponent<GameManager>().ChangeDay();
+            SceneManager.LoadScene("Game");
         }
     }
 }
