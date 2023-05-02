@@ -173,23 +173,23 @@ public class GameManager : MonoBehaviour
         }
         else if (day == 1)
         {
-            maxEnergy = 95;
+            maxEnergy = 85;
         }
         else if (day == 2)
         {
-            maxEnergy = 90;
+            maxEnergy = 70;
         }
         else if (day == 3)
         {
-            maxEnergy = 75;
+            maxEnergy = 50;
         }
         else if (day == 4 && !PlayerPrefs.HasKey("FinishGame?"))
         {
-            maxEnergy = 45;
+            maxEnergy = 30;
         }
         else if (day == 5 && !PlayerPrefs.HasKey("FinishGame?"))
         {
-            maxEnergy = 15;
+            maxEnergy = 10;
         }
         else if (day == 6 && !PlayerPrefs.HasKey("FinishGame?"))
         {
@@ -197,11 +197,11 @@ public class GameManager : MonoBehaviour
         }
         else if (day == 4 && PlayerPrefs.HasKey("FinishGame?"))
         {
-            maxEnergy = 85;
+            maxEnergy = 70;
         }
         else if (day == 5 && PlayerPrefs.HasKey("FinishGame?"))
         {
-            maxEnergy = 95;
+            maxEnergy = 85;
         }
         else if (day == 6 && PlayerPrefs.HasKey("FinishGame?"))
         {

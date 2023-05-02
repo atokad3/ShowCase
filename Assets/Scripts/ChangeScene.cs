@@ -81,15 +81,7 @@ public class ChangeScene : MonoBehaviour
     public void ResetDay()
     {
         // resets game and things to default
-        if (PlayerPrefs.HasKey("DONE"))
-        {
-            done = true;
-        }
         PlayerPrefs.DeleteAll();
-        if(done == true)
-        {
-            PlayerPrefs.SetString("DONE", "Yes");
-        }
         PlayerPrefs.SetInt("Bedroom", 1);
         PlayerPrefs.SetInt("Time", 0);
     }
