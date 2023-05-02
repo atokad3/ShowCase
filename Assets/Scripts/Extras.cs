@@ -75,6 +75,16 @@ public class Extras : MonoBehaviour
             menu.SetActive(true);
             extra.SetActive(false);
         }
+        if (PlayerPrefs.HasKey("DONE") && menu.activeInHierarchy)
+        {
+            menu.SetActive(false);
+            extra.SetActive(true);
+        }
+        else if (PlayerPrefs.HasKey("DONE") && !menu.activeInHierarchy)
+        {
+            menu.SetActive(true);
+            extra.SetActive(false);
+        }
     }
 
     public void Date()
