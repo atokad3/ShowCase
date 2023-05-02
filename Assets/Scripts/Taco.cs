@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Taco : MonoBehaviour
 {
-    
+    public AudioSource src;
+    public AudioClip sfxTaco;
     public GameObject Ingredient;
     public GameObject introText;
 
@@ -30,6 +31,13 @@ public class Taco : MonoBehaviour
         Instantiate(Ingredient, spawnLocation, Ingredient.transform.rotation);
         
         
+    }
+
+    public void TacoSound()
+    {
+        src.clip = sfxTaco;
+        src.Play();
+        Debug.Log("tacosound");
     }
 
 }
