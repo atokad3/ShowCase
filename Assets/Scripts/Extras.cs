@@ -13,6 +13,7 @@ public class Extras : MonoBehaviour
     public GameObject extra;
     public Button date;
     public GameObject lockedDate;
+    public GameObject lockedTaco;
     public GameObject exitDate;
     public GameObject taco;
     public GameObject datePj;
@@ -31,6 +32,14 @@ public class Extras : MonoBehaviour
         else
         {
             lockedDate.SetActive(true);
+        }
+        if (PlayerPrefs.HasKey("FinishGame?"))
+        {
+            lockedTaco.SetActive(false);
+        }
+        else if(PlayerPrefs.HasKey("DONE"))
+        {
+            lockedTaco.SetActive(false);
         }
     }
 
@@ -71,16 +80,6 @@ public class Extras : MonoBehaviour
             extra.SetActive(true);
         }
         else if (!menu.activeInHierarchy)
-        {
-            menu.SetActive(true);
-            extra.SetActive(false);
-        }
-        if (PlayerPrefs.HasKey("DONE") && menu.activeInHierarchy)
-        {
-            menu.SetActive(false);
-            extra.SetActive(true);
-        }
-        else if (PlayerPrefs.HasKey("DONE") && !menu.activeInHierarchy)
         {
             menu.SetActive(true);
             extra.SetActive(false);
