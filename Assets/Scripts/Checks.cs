@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Checks : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Checks : MonoBehaviour
     public GameObject dayEnd;
     private int number;
     public GameObject lunchdate;
+    private int tasksAreDone;
+    public TextMeshProUGUI FinishedTasksText;
+    private int time;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,36 @@ public class Checks : MonoBehaviour
         if (lunchdate.GetComponent<Interactables>().taskIsDone)
         {
             checks[5].GetComponent<SpriteRenderer>().sprite = good;
+        }
+        time = gameObject.GetComponent<GameManager>().time;
+        ChecksThroughDay();
+    }
+
+    public void ChecksThroughDay()
+    {
+        foreach (GameObject tasker in checks)
+        {
+            if(tasker.tag == "Morning" && time >= 3)
+            {
+                if(tasker.GetComponent<SpriteRenderer>().sprite == box)
+                {
+                    tasker.GetComponent<SpriteRenderer>().sprite = bad;
+                }
+            }
+            if (tasker.tag == "Night" && time >= 8)
+            {
+                if (tasker.GetComponent<SpriteRenderer>().sprite == box)
+                {
+                    tasker.GetComponent<SpriteRenderer>().sprite = bad;
+                }
+            }
+            if (tasker.tag == "Lunch" && time >= 4)
+            {
+                if (tasker.GetComponent<SpriteRenderer>().sprite == box)
+                {
+                    tasker.GetComponent<SpriteRenderer>().sprite = bad;
+                }
+            }
         }
     }
 
@@ -52,6 +86,14 @@ public class Checks : MonoBehaviour
             }
             number++;
         }
+        foreach (GameObject tasked in checks)
+        {
+            if (tasked.GetComponent<SpriteRenderer>().sprite == good)
+            {
+                tasksAreDone++;
+            }
+        }
+        FinishedTasksText.text = tasksAreDone + "/10 Tasks Done";
         dayEnd.SetActive(true);
     }
 }
