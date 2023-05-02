@@ -41,6 +41,9 @@ public class Sleep : Interactables
         PlayerPrefs.DeleteKey("StopCamX");
         PlayerPrefs.DeleteKey("StopCamY");
         PlayerPrefs.DeleteKey("CurrentEnergy");
+        PlayerPrefs.DeleteKey("task10");
+        PlayerPrefs.DeleteKey("task6");
+        PlayerPrefs.DeleteKey("task11");
         PlayerPrefs.SetInt("Time", 0);
         foreach(GameObject task in tasks)
         {

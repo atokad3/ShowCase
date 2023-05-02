@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
-
-    public GameObject box;
-    public Sprite check;
     public GameObject gm;
     public bool done;
 
@@ -14,16 +11,13 @@ public class ChangeScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("Task10"))
-        { 
-            box.GetComponent<SpriteRenderer>().sprite = check;
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void gameScene()
@@ -53,8 +47,6 @@ public class ChangeScene : MonoBehaviour
 
     public void SchoolAndWork()
     {
-        box.GetComponent<SpriteRenderer>().sprite = check;
-        gm.GetComponent<GameManager>().isSchoolDone = true;
         PlayerPrefs.SetString("task10", "Done");
         gm.GetComponent<GameManager>().LoseEnergy(10);
     }

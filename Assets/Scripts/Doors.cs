@@ -49,7 +49,7 @@ public class Doors : MonoBehaviour
             Move();
             mainCamera.GetComponent<GameManager>().LoseEnergy(10);
             openDoor.SetActive(false);
-            lunchDate.GetComponent<Interactables>().taskIsDone = true;
+            lunchDate.GetComponent<Interactables>().DoTheTask();
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checks : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Checks : MonoBehaviour
     public List<GameObject> dayEndBox;
     public GameObject dayEnd;
     private int number;
+    public GameObject lunchdate;
 
     // Start is called before the first frame update
     void Start()
@@ -22,43 +24,13 @@ public class Checks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject check in checks)
+        if(PlayerPrefs.HasKey("task10") && SceneManager.GetActiveScene().name == "Game")
         {
-            if(PlayerPrefs.GetInt("Weekday") <= 4)
-            {
-                if(tag == "Morning" && check.GetComponent<SpriteRenderer>().sprite == box)
-                {
-                    if(PlayerPrefs.GetInt("Time") >= 4)
-                    {
-                        check.GetComponent<SpriteRenderer>().sprite = bad;
-                    }
-                }
-                if (tag == "Night" && check.GetComponent<SpriteRenderer>().sprite == box)
-                {
-                    if (PlayerPrefs.GetInt("Time") >= 8)
-                    {
-                        check.GetComponent<SpriteRenderer>().sprite = bad;
-                    }
-                }
-            }
-            if (PlayerPrefs.GetInt("Weekday") >= 5)
-            {
-                if (tag == "Morning" && check.GetComponent<SpriteRenderer>().sprite == box)
-                {
-                    if (PlayerPrefs.GetInt("Time") >= 5)
-                    {
-                        check.GetComponent<SpriteRenderer>().sprite = bad;
-                    }
-                }
-                if (tag == "Night" && check.GetComponent<SpriteRenderer>().sprite == box)
-                {
-                    if (PlayerPrefs.GetInt("Time") >= 8)
-                    {
-                        check.GetComponent<SpriteRenderer>().sprite = bad;
-                    }
-                }
-            }
-
+            checks[4].GetComponent<SpriteRenderer>().sprite = good;
+        }
+        if (lunchdate.GetComponent<Interactables>().taskIsDone)
+        {
+            checks[5].GetComponent<SpriteRenderer>().sprite = good;
         }
     }
 

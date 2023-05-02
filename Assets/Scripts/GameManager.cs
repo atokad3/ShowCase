@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     public GameObject phone;
     public bool isWorkDone;
     public Sprite datePjs;
-    public bool isSchoolDone;
    
 
 
@@ -103,10 +102,6 @@ public class GameManager : MonoBehaviour
             if (keys.GetComponent<Interactables>().taskIsDone)
             {
             carInUse.SetActive(true);
-            }
-            else if (!keys.GetComponent<Interactables>().taskIsDone)
-            {
-                Debug.Log("Get Keys!!");  
             }
         }
         else if (time >= 4)

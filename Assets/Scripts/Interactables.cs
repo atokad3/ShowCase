@@ -32,6 +32,7 @@ public class Interactables : MonoBehaviour
         {
             LoadTask();
         }
+
     }
 
     void Update()
@@ -41,23 +42,11 @@ public class Interactables : MonoBehaviour
         {
             if(tag != "Vacuum")
             { // if not vacuum then complete task & if also dresser change clothes
-                taskIsDone = true;
-                glow.SetActive(false);
-                LoseEnergy(energyCost);
-                if (gameObject.name == "Dresser")
-                {
-                    player.GetComponent<Animator>().SetBool("gotDressed", true);
-                }
-                box.GetComponent<SpriteRenderer>().sprite = check;
-                PlayerPrefs.SetString("task" + taskNum, "Done");
+                DoTheTask();
             }
             else if(tag == "Vacuum" && closet.activeInHierarchy)
             { // if vacuum then closet has to be open to do task
-                taskIsDone = true;
-                glow.SetActive(false);
-                LoseEnergy(energyCost);
-                box.GetComponent<SpriteRenderer>().sprite = check;
-                PlayerPrefs.SetString("task" + taskNum, "Done");
+                DoTheTask();
             }
         }
         else if(Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone && energyCost > currentEnergy)
@@ -76,6 +65,19 @@ public class Interactables : MonoBehaviour
         {
             player.GetComponent<Animator>().SetBool("gotDressed", true);
         }
+    }
+
+    public void DoTheTask()
+    {
+        taskIsDone = true;
+        glow.SetActive(false);
+        LoseEnergy(energyCost);
+        if (gameObject.name == "Dresser")
+        {
+            player.GetComponent<Animator>().SetBool("gotDressed", true);
+        }
+        box.GetComponent<SpriteRenderer>().sprite = check;
+        PlayerPrefs.SetString("task" + taskNum, "Done");
     }
 
     public void DayChangeTask()
