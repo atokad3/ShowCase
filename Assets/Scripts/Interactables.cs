@@ -21,6 +21,9 @@ public class Interactables : MonoBehaviour
     public Sprite bad;
     public GameObject closet;
 
+    public AudioSource src;
+    public AudioClip sfxAAAAAA;
+
     void Start()
     {
         energyBar = GameObject.Find("EnergyBar").GetComponent<EnergyBar>();
@@ -43,10 +46,16 @@ public class Interactables : MonoBehaviour
             if(tag != "Vacuum")
             { // if not vacuum then complete task & if also dresser change clothes
                 DoTheTask();
+                src.clip = sfxAAAAAA;
+                src.Play();
+                Debug.Log("tacosound");
             }
             else if(tag == "Vacuum" && closet.activeInHierarchy)
             { // if vacuum then closet has to be open to do task
                 DoTheTask();
+                src.clip = sfxAAAAAA;
+                src.Play();
+                Debug.Log("tacosound");
             }
         }
         else if(Input.GetKeyDown(KeyCode.E) && glow.activeInHierarchy && !taskIsDone && energyCost > currentEnergy)
