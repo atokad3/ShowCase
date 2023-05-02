@@ -39,14 +39,16 @@ public class ChangeScene : MonoBehaviour
     }
 
     public void timeTaco()
-    {        
-        SceneManager.LoadScene("TimeTaco");
+    {
+        gm.GetComponent<GameManager>().taco = true;
         gm.GetComponent<GameManager>().isWorkDone = true;
         PlayerPrefs.SetInt("TacoToggle", 1);
     }
 
     public void SchoolAndWork()
     {
+        gm.GetComponent<GameManager>().goingPlaces = true;
+        gm.GetComponent<GameManager>().anim.GetComponent<Animator>().SetBool("Drive", true);
         PlayerPrefs.SetString("task10", "Done");
         gm.GetComponent<GameManager>().LoseEnergy(10);
     }

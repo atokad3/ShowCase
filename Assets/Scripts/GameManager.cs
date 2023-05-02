@@ -41,7 +41,10 @@ public class GameManager : MonoBehaviour
     public GameObject phone;
     public bool isWorkDone;
     public Sprite datePjs;
-   
+    public GameObject anim;
+    public bool taco;
+    public bool goingPlaces;
+
 
 
     // Start is called before the first frame update
@@ -58,7 +61,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       TimeTasks();
+        if (taco == true)
+        {
+            StartCoroutine(TimeTaco());
+        }
+        else if (goingPlaces == true)
+        {
+            StartCoroutine(Waiting());
+        }
+        TimeTasks();
        // changes clock to match day & time
        if(day <= 6)
         {
@@ -89,6 +100,19 @@ public class GameManager : MonoBehaviour
         // changes and saves what day it is
         day += 1;
         PlayerPrefs.SetInt("Weekday", day);
+    }
+
+    IEnumerator Waiting()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(anim);
+        goingPlaces = false;
+    }
+    IEnumerator TimeTaco()
+    {
+        yield return new WaitForSeconds(1.5f);
+        taco = false;
+        SceneManager.LoadScene("TimeTaco");
     }
 
     private void TimeTasks()
@@ -127,6 +151,8 @@ public class GameManager : MonoBehaviour
 
     private void SetUp()
     {
+        goingPlaces = false;
+        taco = false;
         LoadDay();
         LoadRoom();
         HowMuchEnergy();
