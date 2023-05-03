@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
-    private GameObject gm;
+    public GameObject gm;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameObject.Find("Main Camera");
+
     }
 
     // Update is called once per frame

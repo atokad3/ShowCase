@@ -1652,7 +1652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  done: 0
 --- !u!114 &205420287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7831,7 +7830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 519420028}
-  done: 0
 --- !u!114 &1084905441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8866,7 +8864,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  done: 0
 --- !u!114 &1166097995
 MonoBehaviour:
   m_ObjectHideFlags: 0
