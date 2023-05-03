@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
+
     private GameObject mainCamera;
     private GameObject player;
     public Vector3 playerGoTo;
@@ -74,4 +75,5 @@ public class Doors : MonoBehaviour
     {
             doorButton.SetActive(false);
     }
+
 }
