@@ -805,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 40, y: 11, z: -0.25}
   cameraGoTo: {x: 40, y: 11.5, z: -10}
   currentRoom: {fileID: 1689485733}
@@ -2023,6 +2024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 176247699}
   playerGoTo: {x: 26.11, y: -1, z: -0.25}
   cameraGoTo: {x: 19.32, y: 0, z: -10}
   currentRoom: {fileID: 583233768}
@@ -2349,6 +2351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 12.17, y: -1, z: -0.25}
   cameraGoTo: {x: 19.32, y: 0, z: -10}
   currentRoom: {fileID: 1688611002}
@@ -4408,6 +4411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 176247699}
   playerGoTo: {x: 53.27, y: -1, z: -0.25}
   cameraGoTo: {x: 59.5, y: -0.03, z: -10}
   currentRoom: {fileID: 583233768}
@@ -4947,6 +4951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 0, y: 0, z: 0}
   cameraGoTo: {x: 0, y: 0, z: 0}
   currentRoom: {fileID: 1575481792}
@@ -5202,6 +5207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 40, y: 11, z: -0.25}
   cameraGoTo: {x: 40, y: 11.5, z: -10}
   currentRoom: {fileID: 816414460}
@@ -6192,6 +6198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 176247699}
   playerGoTo: {x: 19.12, y: -1, z: -0.25}
   cameraGoTo: {x: 19.32, y: 0, z: -10}
   currentRoom: {fileID: 1971050427}
@@ -6259,6 +6266,18 @@ MonoBehaviour:
       - m_Target: {fileID: 845795234}
         m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
         m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 845795230}
+        m_TargetAssemblyTypeName: Doors, Assembly-CSharp
+        m_MethodName: StopSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6568,6 +6587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 176247699}
   playerGoTo: {x: 40, y: 11, z: 0}
   cameraGoTo: {x: 40, y: 11.5, z: -10}
   currentRoom: {fileID: 1575481792}
@@ -7313,6 +7333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 60, y: 9.5, z: 1}
   cameraGoTo: {x: 59.59, y: 11.56, z: 0}
   currentRoom: {fileID: 1685388868}
@@ -7580,6 +7601,18 @@ MonoBehaviour:
       - m_Target: {fileID: 917887184}
         m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
         m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 597058336}
+        m_TargetAssemblyTypeName: Doors, Assembly-CSharp
+        m_MethodName: StopSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10268,6 +10301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 33, y: -1, z: -0.25}
   cameraGoTo: {x: 39.22, y: 0, z: -10}
   currentRoom: {fileID: 1884984521}
@@ -10468,6 +10502,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1473666718}
         m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
         m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 876502784}
+        m_TargetAssemblyTypeName: Doors, Assembly-CSharp
+        m_MethodName: StopSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12311,6 +12357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 0, y: 0, z: -10}
   cameraGoTo: {x: 79.7, y: 11.6, z: -10}
   currentRoom: {fileID: 1685388868}
@@ -12647,6 +12694,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1779986823}
         m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
         m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2048464534}
+        m_TargetAssemblyTypeName: Doors, Assembly-CSharp
+        m_MethodName: StopSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13035,6 +13094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 19.02, y: 11.47, z: -0.25}
   cameraGoTo: {x: 19.34, y: 11.44, z: -10}
   currentRoom: {fileID: 1884984521}
@@ -13369,6 +13429,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1908564929}
         m_TargetAssemblyTypeName: Daytime, Assembly-CSharp
         m_MethodName: ClockTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 268767015}
+        m_TargetAssemblyTypeName: Doors, Assembly-CSharp
+        m_MethodName: StopSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14440,6 +14512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 176247699}
   playerGoTo: {x: 45, y: -1, z: -0.25}
   cameraGoTo: {x: 39.22, y: 0, z: -10}
   currentRoom: {fileID: 1575481792}
@@ -14526,6 +14599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 65.5, y: -1, z: -0.25}
   cameraGoTo: {x: 59.5, y: -0.03, z: -10}
   currentRoom: {fileID: 1685388868}
@@ -14897,6 +14971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 0, y: 0, z: -10}
   cameraGoTo: {x: 79.7, y: 11.6, z: -10}
   currentRoom: {fileID: 1685388868}
@@ -15348,6 +15423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c871ff77f4d0f17429b26467bc062141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 0}
   playerGoTo: {x: 5.75, y: -1, z: -0.25}
   cameraGoTo: {x: 0, y: 0, z: -10}
   currentRoom: {fileID: 1884984521}

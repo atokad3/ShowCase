@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-
+    public AudioSource src;
     private GameObject mainCamera;
     private GameObject player;
     public Vector3 playerGoTo;
@@ -37,13 +37,13 @@ public class Doors : MonoBehaviour
 
     public void Date()
     {
-        if(PlayerPrefs.GetFloat("CurrentEnergy") < 10)
+        if (PlayerPrefs.GetFloat("CurrentEnergy") < 10)
         {
             Debug.Log("No Date For U");
         }
-        else if(PlayerPrefs.GetFloat("CurrentEnergy") >= 10)
+        else if (PlayerPrefs.GetFloat("CurrentEnergy") >= 10)
         {
-            if(player.GetComponent<Animator>().GetBool("gotDressed") == false)
+            if (player.GetComponent<Animator>().GetBool("gotDressed") == false)
             {
                 dateBg.GetComponent<SpriteRenderer>().sprite = mainCamera.GetComponent<GameManager>().datePjs;
             }
@@ -68,12 +68,16 @@ public class Doors : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            doorButton.SetActive(true);
+        doorButton.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-            doorButton.SetActive(false);
+        doorButton.SetActive(false);
     }
 
+    public void StopSound ()
+        {
+        src.Stop();
+        }
 }
