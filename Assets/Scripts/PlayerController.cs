@@ -46,13 +46,13 @@ public class PlayerController : MonoBehaviour
 
     private void Pause()
     { // pauses game
-        if (Input.GetKeyDown(KeyCode.Escape) && !PauseGame.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !PauseGame.activeInHierarchy)
         {
             PauseGame.SetActive(true);
             Time.timeScale = 0;
         }
         //unpause game
-        else if (Input.GetKeyDown(KeyCode.Escape) && PauseGame.activeInHierarchy)
+        else if (Input.GetKeyDown(KeyCode.LeftControl) && PauseGame.activeInHierarchy)
         {
             PauseGame.SetActive(false);
             Time.timeScale = 1;
