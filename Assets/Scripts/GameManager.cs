@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public GameObject anim;
     public bool taco;
     public bool goingPlaces;
+    public GameObject sleep;
 
 
 
@@ -61,6 +62,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I) && day <= 4)
+        {
+            day = 5;
+            PlayerPrefs.SetInt("Weekday", day);
+            sleep.GetComponent<Sleep>().ResetStuff();
+            SceneManager.LoadScene("Game");
+        }
         if (taco == true)
         {
             StartCoroutine(TimeTaco());

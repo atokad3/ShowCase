@@ -29,6 +29,7 @@ public class ChangeScene : MonoBehaviour
         {
             PlayerPrefs.SetString("FirstStart", "No");
             TutorialScene();
+            ResetDay();
         }
     }
 

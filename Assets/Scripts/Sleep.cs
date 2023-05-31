@@ -34,7 +34,7 @@ public class Sleep : Interactables
         glow.SetActive(false);
     }
 
-    private void ResetStuff()
+    public void ResetStuff()
     {
         PlayerPrefs.DeleteKey("StopX");
         PlayerPrefs.DeleteKey("StopY");

@@ -4030,6 +4030,7 @@ MonoBehaviour:
   anim: {fileID: 485507186}
   taco: 0
   goingPlaces: 0
+  sleep: {fileID: 671414502}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
